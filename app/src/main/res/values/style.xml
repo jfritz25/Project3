@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--  This file's purpose is for storing the redundant style choices assigned to the buttons
+          and limiting the main amount of code in the driver xml file.
+      -->
+    <!--  Used for looking at the text displayed when the user presses a button and it display's in the top row  -->
+    <style name="columnleft">
+        <!--  layout_ values determine how much space is taken and makes the width consistent with the parent layout      -->
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_width">120dp</item>
+        <item name="android:layout_height">0dp</item>
+        <!--  given from pdf      -->
+        <item name="android:textSize">80sp</item>
+
+    </style>
+
+    <style name="columnright">
+        <!--  layout_ values determine how much space is taken and makes the width consistent with the parent layout      -->
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_width">120dp</item>
+        <item name="android:layout_height">0dp</item>
+        <!--  given from pdf      -->
+        <item name="android:textSize">80sp</item>
+
+    </style>
+    <style name="buttonNumber">
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <!--  Used for the symbol buttons and has a symbol action defied for those buttons  -->
+    <style name="buttonSymbol">
+        <!--   layout_weight is used to allocated the space needed in layout   -->
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <!--  font specified in the pdf      -->
+        <item name="android:textSize">30sp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:onClick">symbolAction</item>
+
+    </style>
+
+</resources>

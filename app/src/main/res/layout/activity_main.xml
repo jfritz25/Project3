@@ -1,18 +1,281 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!-- Define the usability and orientation in Linear Layout first then go into Constraint Layout to arrange this UI components -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
     tools:context=".MainActivity">
+    <!-- This is where the "constraints" or "manual" fixes to the UI occur-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:padding="20dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- A LinearLayout with the style buttonRow defines the buttons in order of appearance for their respective rows (as seen on the calc) -->
+    <LinearLayout style="@style/columnleft">
+        <!-- this will be TOP LEFT button seen in the TOP row-->
+        <!-- the radius, margin, and displayed text is hardcoded here as well (values from pdf) -->
+
+        <TextView
+            android:id="@+id/mainText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:lines="2"
+            android:maxLines="2"
+
+            android:textAlignment="textStart"
+            android:textSize="80sp"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <Button
+            android:id="@+id/buttonC"
+            style="@style/buttonSymbol"
+            android:layout_margin="2dp"
+            app:cornerRadius = "3dp"
+            android:text="C"
+            android:textSize="30sp"/>
+
+
+        <!-- this will be the L MIDDLE button seen in the TOP row-->
+        <!-- the radius, margin, and displayed text is hardcoded here as well (values from pdf) -->
+        <Button
+            android:id="@+id/buttonNegate"
+            style="@style/buttonSymbol"
+            app:cornerRadius = "3dp"
+            android:layout_margin="2dp"
+            android:text="+/-"
+            android:textSize="30sp"/>
+
+        <!-- this will be the R MIDDLE button seen in the TOP row-->
+        <!-- the radius, margin, and displayed text is hardcoded here as well (values from pdf) -->
+        <Button
+            android:id="@+id/buttonPercent"
+            style="@style/buttonSymbol"
+            android:text="%"
+            android:layout_margin="2dp"
+            app:cornerRadius = "3dp"
+            android:textSize="30sp"
+            />
+
+        <!-- this will be the RIGHT button seen in the TOP row-->
+        <!-- the radius, margin, and displayed text is hardcoded here as well (values from pdf) -->
+        <Button
+            android:id="@+id/buttonDivide"
+            style="@style/buttonSymbol"
+            app:cornerRadius = "3dp"
+            android:layout_margin="2dp"
+            android:text="/"
+            android:textSize="30sp"/>
+
+        <Button
+            android:id="@+id/buttonSin"
+            style="@style/buttonSymbol"
+            app:cornerRadius = "3dp"
+            android:layout_margin="2dp"
+            android:text="Sin"
+            android:textAllCaps="false"
+            android:textSize="30sp"/>
+
+    </LinearLayout>
+
+    <!--  Same Process is followed as defined above   -->
+    <LinearLayout style="@style/buttonRow">
+
+        <!--   Same Process for the Buttons follows as defined above     -->
+        <Button
+            android:id="@+id/button7"
+            style="@style/buttonNumber"
+            android:onClick="numberAction"
+            android:text="7"
+            app:cornerRadius = "3dp"
+            android:layout_margin="2dp"
+            android:textColor="@android:color/white"
+            android:textSize="30sp"/>
+
+        <Button
+            android:id="@+id/button8"
+            style="@style/buttonNumber"
+            android:text="8"
+            app:cornerRadius = "3dp"
+            android:layout_margin="2dp"
+            android:textColor="@android:color/white"
+            android:textSize="30sp"/>
+        />
+
+        <Button
+            android:id="@+id/button9"
+            style="@style/buttonNumber"
+            app:cornerRadius = "3dp"
+            android:layout_margin="2dp"
+            android:text="9"
+            android:textSize="30sp"/>
+
+        <Button
+            android:id="@+id/buttonMultiply"
+
+            style="@style/buttonSymbol"
+            app:cornerRadius = "3dp"
+            android:layout_margin="2dp"
+            android:text="X"
+            android:textSize="30sp"/>
+        <Button
+            android:id="@+id/buttonCos"
+            style="@style/buttonSymbol"
+            app:cornerRadius = "3dp"
+            android:layout_margin="2dp"
+            android:text="Sin"
+            android:textAllCaps="false"
+            android:textSize="30sp"/>
+    </LinearLayout>
+
+    <LinearLayout style="@style/buttonRow">
+
+        <Button
+            android:id="@+id/button4"
+            style="@style/buttonNumber"
+            app:cornerRadius = "3dp"
+            android:layout_margin="2dp"
+            android:text="4"
+            android:textSize="30sp"/>
+
+        <Button
+            android:id="@+id/button5"
+            style="@style/buttonNumber"
+            app:cornerRadius = "3dp"
+            android:layout_margin="2dp"
+            android:text="5"
+            android:textSize="30sp"/>
+
+        <Button
+            android:id="@+id/button6"
+            style="@style/buttonNumber"
+            android:layout_margin="2dp"
+            app:cornerRadius = "3dp"
+            android:text="6"
+            android:textSize="30sp"/>
+
+        <!-- -->
+        <Button
+            android:id="@+id/buttonSubtract"
+            style="@style/buttonSymbol"
+            android:layout_margin="2dp"
+            app:cornerRadius = "3dp"
+            android:text="-"
+            android:textSize="30sp"/>
+        <Button
+            android:id="@+id/buttonTan"
+            style="@style/buttonSymbol"
+            app:cornerRadius = "3dp"
+            android:layout_margin="2dp"
+            android:text="Tan"
+            android:textAllCaps="false"
+            android:textSize="30sp"/>
+    </LinearLayout>
+
+    <LinearLayout style="@style/buttonRow">
+
+        <Button
+            android:id="@+id/button1"
+            style="@style/buttonNumber"
+            app:cornerRadius = "3dp"
+            android:layout_margin="2dp"
+            android:text="1"
+            android:textSize="30sp"/>
+
+        <Button
+            android:id="@+id/button2"
+            style="@style/buttonNumber"
+            app:cornerRadius = "3dp"
+            android:layout_margin="2dp"
+            android:text="2"
+            android:textSize="30sp"/>
+
+        <Button
+            android:id="@+id/button3"
+            style="@style/buttonNumber"
+            app:cornerRadius = "3dp"
+            android:layout_margin="2dp"
+            android:text="3"
+            android:textSize="30sp"/>
+
+        <Button
+            android:id="@+id/buttonAdd"
+            style="@style/buttonSymbol"
+            app:cornerRadius = "3dp"
+            android:layout_margin="2dp"
+            android:text="+"
+            android:textSize="30sp"/>
+        <Button
+            android:id="@+id/buttonLog10"
+            style="@style/buttonSymbol"
+            app:cornerRadius = "3dp"
+            android:layout_margin="2dp"
+            android:text="Log 10"
+            android:textAllCaps="false"
+            android:textSize="30sp"/>
+    </LinearLayout>
+
+    <!-- Linear Layout can stay consistent due to the constraints put in on the width following the parent's width :
+         - meaning the space is filled by the buttons below
+         - It auto fills the space with the content
+     -->
+    <LinearLayout
+        style="@style/buttonRow"
+        android:weightSum = "5"
+        >
+
+        <!-- this will be the LEFT button seen in the BOTTOM row-->
+        <!-- the radius, margin, and displayed text is hardcoded here as well (values from pdf) -->
+        <Button
+            android:id="@+id/button0"
+            style="@style/buttonNumber"
+            app:cornerRadius = "3dp"
+            android:layout_margin="2dp"
+            android:text="0"
+            android:layout_weight="2"
+            android:textSize="30sp"/>
+
+
+        <!-- this will be the CENTER button seen in the BOTTOM row-->
+        <!-- the radius, margin, and displayed text is hardcoded here as well (values from pdf) -->
+        <Button
+            android:id="@+id/buttonDecimal"
+            style="@style/buttonSymbol"
+            android:layout_margin="2dp"
+            app:cornerRadius = "3dp"
+            android:layout_weight="1"
+            android:text="."
+            android:textSize="30sp"/>
+
+        <!-- this will be the RIGHT button seen in the BOTTOM row-->
+        <!-- the radius, margin, and displayed text is hardcoded here as well (values from pdf) -->
+        <Button
+            android:id="@+id/buttonEquals"
+            style="@style/buttonSymbol"
+            android:layout_margin="2dp"
+            app:cornerRadius = "3dp"
+            android:layout_weight="1"
+            android:text="="
+            android:textSize="30sp"/>
+        <Button
+            android:id="@+id/buttonln"
+            style="@style/buttonSymbol"
+            app:cornerRadius = "3dp"
+            android:layout_margin="2dp"
+            android:text="Sin"
+            android:textAllCaps="false"
+            android:layout_weight="1"
+            android:textSize="30sp"/>
+
+        <!--   Closing Tags     -->
+    </LinearLayout>
+</LinearLayout>
