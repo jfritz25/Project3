@@ -32,6 +32,9 @@
         android:textSize="20sp"
         android:textStyle="bold"
 
+        android:layout_alignParentRight="true"
+
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -48,33 +51,31 @@
         android:textSize="20sp"
         android:textStyle="bold"
 
+        android:layout_alignParentLeft="true"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="196dp"
-        android:layout_height="wrap_content" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="196dp"
-        android:layout_height="wrap_content" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="match_parent"
-        android:layout_height="64dp"
-        android:text="START"
-        app:cornerRadius="0dp"
-        android:textColor="@color/black"
-        android:background="@color/start"
-
-        />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <Button
+            android:id="@+id/buttonStart"
+            android:layout_width="match_parent"
+            android:layout_height="155dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="247dp"
+            android:layout_marginBottom="61dp"
+
+            android:background="@color/start"
+            android:textSize="35dp"
+            android:text="START"
+            android:textColor="@color/black"
+            app:cornerRadius="0dp" />
     </RelativeLayout>
 
     <!--   Closing Tags     -->

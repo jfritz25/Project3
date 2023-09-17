@@ -4,13 +4,14 @@
           and limiting the main amount of code in the driver xml file.
       -->
     <!--  Used for looking at the text displayed when the user presses a button and it display's in the top row  -->
-    <style name="columnleft">
+    <style name="buttonStart">
         <!--  layout_ values determine how much space is taken and makes the width consistent with the parent layout      -->
         <item name="android:layout_weight">1</item>
         <item name="android:layout_width">120dp</item>
         <item name="android:layout_height">0dp</item>
         <!--  given from pdf      -->
         <item name="android:textSize">80sp</item>
+        <item name="android:background">@color/start</item>
 
     </style>
 
