@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
 
         var equationList = mutableListOf<String>()
         var answerList = mutableListOf<Double>()
-
+        //Below code will be first fragment not mainactivity, we still initalize above to be accessed by all fragments?
         val buttonEasy = findViewById<Button>(R.id.buttonEasy)
         buttonEasy.setOnClickListener {
             difficulty = "Easy"
@@ -74,7 +74,47 @@ class MainActivity : AppCompatActivity() {
                 }
 
             }
+            //Something to load second fragment
         }
+        val buttonAddQs = findViewById<Button>(R.id.buttonAddQs)
+        buttonAddQs.setOnClickListener {
+            if (numOfQs < 10){
+                numOfQs++
+                val QsText = findViewById<TextView>(R.id.QsText)
+                QsText.text = numOfQs.toString()
+            }
+        }
+        val buttonSubtractQs = findViewById<Button>(R.id.buttonSubtractQs)
+        buttonAddQs.setOnClickListener {
+            if (numOfQs > 0){
+                numOfQs--
+                val QsText = findViewById<TextView>(R.id.QsText)
+                QsText.text = numOfQs.toString()
+            }
+        }
+        var userAnswers = mutableListOf<Double>()
+        var qsAnswered = 0
+        //Below Code will go into second fragment
+        val buttonDone = findViewById<Button>(R.id.buttonDone)
+        buttonDone.setOnClickListener {
+            if(qsAnswered != numOfQs){
+                val answerText = findViewById<TextView>(R.id.answerText)
+                userAnswers.add(answerText.toDouble())
+                answerText.text = ""
+                val eqText = findViewById<TextView>(R.id.eqText)
+                eqText.text = equationList.get(0)
+                equationList = equationList.subList(1,equationList.size - 1)
+                qsAnswered++
+
+        }
+            else{
+                var numCorrect = userAnswers.zip(answerList).count { (a, b) -> a == b }
+                //something to load third fragment saving numCorrect
+            }
+
 
     }
+        // Third Fragment
+        val scoreText = findViewById<TextView>(R.id.scoreText)
+        scoreText.text = "Score: $numCorrect out of $numOfQs"
 }
