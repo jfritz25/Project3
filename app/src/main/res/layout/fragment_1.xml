@@ -1,14 +1,249 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragment1">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".Fragment1"
+    >
+    <ImageView
+        android:id="@+id/imageMath"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/Math" />
+
+  <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:background="@color/white"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
+
+        <!-- This is where the "constraints" or "manual" fixes to the UI occur-->
+        <!-- A LinearLayout with the style columnLeft that arranges the buttonson the left side of the page -->
+
+
+        <!-- Right Side   -->
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/Math" />
+
+
+        <!--  Getting the wording horizontally next to one-another  -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="225dp"
+            android:layout_marginBottom="0dp"
+            android:text="Select Difficulties"
+            android:textSize="25dp"></TextView>
+
+        <LinearLayout
+            android:layout_width="410dp"
+            android:layout_height="150dp"
+            android:layout_gravity="start">
+
+            <RadioGroup
+                android:id="@+id/diffiulties"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/buttonEasy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="onRadioButtonClicked"
+                    android:text="Easy"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+                <RadioButton
+                    android:id="@+id/buttonMedium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="onRadioButtonClicked"
+                    android:text="Medium"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+                <RadioButton
+                    android:id="@+id/buttonHard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="onRadioButtonClicked"
+                    android:text="Hard"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+            </RadioGroup>
+            <RadioGroup
+                android:id="@+id/opperators"
+                android:layout_width="199dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/buttonAddition"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="onRadioButtonClicked"
+                    android:text="Addition"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+                <RadioButton
+                    android:id="@+id/buttonMultiplication"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="onRadioButtonClicked"
+                    android:text="Multiplication"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+                <RadioButton
+                    android:id="@+id/buttonDivision"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="onRadioButtonClicked"
+                    android:text="Hard"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+                <RadioButton
+                    android:id="@+id/buttonSubtraction"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="onRadioButtonClicked"
+                    android:text="Subtraction"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+            </RadioGroup>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="start">
+
+                <RadioGroup
+                    android:id="@+id/selectDifficulty"
+                    android:layout_width="203dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:lines="1"
+                    android:maxLines="2"
+
+                    android:text="Select difficulty:"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/header"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+
+
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="51dp">
+
+            <!--   Work around - come back to   -->
+
+
+            <TextView
+                android:id="@+id/number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lines="1"
+                android:maxLines="2"
+                android:paddingLeft="10dp"
+
+                android:text="Number of questions"
+                android:textAlignment="textStart"
+                android:textSize="30sp"
+                android:textStyle="bold"
+
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_gravity="center">
+
+            <Button
+                android:id="@+id/buttonSubtractQs"
+                style="@style/buttonSymbol"
+                android:layout_height="70dp"
+                android:layout_margin="1dp"
+
+                android:text="+"
+                android:textSize="22sp"
+                app:cornerRadius="3dp" />
+
+            <TextView
+                android:id="@+id/QsText"
+                style="@style/buttonSymbol"
+                android:layout_height="70dp"
+                android:layout_margin="1dp"
+
+                android:text=""
+                android:textColor=""
+                android:textSize="22sp"
+                app:cornerRadius="3dp" />
+
+            <Button
+                android:id="@+id/buttonAddQs"
+                style="@style/buttonSymbol"
+                android:layout_height="70dp"
+                android:layout_margin="1dp"
+
+                android:text="+"
+                android:textSize="22sp"
+                app:cornerRadius="3dp" />
+
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/buttonStart"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="61dp"
+
+
+            android:background="@color/start"
+            android:text="START"
+            android:textColor="@color/black"
+            android:textSize="35dp"
+            app:cornerRadius="0dp" />
+
+
+        <!--   Closing Tags     -->
+    </LinearLayout>
+
 
 </FrameLayout>
