@@ -1,331 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical"
-    tools:context=".Fragment1"
+    tools:context=".Fragment2"
     >
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
         android:orientation="vertical"
-        tools:context=".MainActivity">
-        <!-- This is where the "constraints" or "manual" fixes to the UI occur-->
-        <!-- A LinearLayout with the style columnLeft that arranges the buttonson the left side of the page -->
+        tools:context=".Fragment3">
 
 
-        <!-- Right Side   -->
 
-        <ImageView
-            android:id="@+id/imageView"
+        <TextView
+            android:id="@+id/answers"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/math" />
+            android:layout_height="300dp"
+            android:lines="1"
+            android:gravity="center"
+            android:maxLines="2"
+            android:textSize="50sp"
+            android:textColor="@color/black"
 
 
-        <!--  Getting the wording horizontally next to one-another  -->
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
-
-            <TextView
-                android:id="@+id/selectDifficulty"
-                android:layout_width="216dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:lines="1"
-                android:maxLines="2"
-
-                android:text="Select difficulty:"
-                android:textAlignment="textStart"
-                android:textSize="20sp"
-                android:textColor="@color/header"
-
-                android:textStyle="bold"
-
-
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/selectOpperation"
-                android:layout_width="214dp"
-                android:layout_height="match_parent"
-                android:layout_alignParentLeft="true"
-                android:lines="1"
-                android:maxLines="2"
-
-                android:text="Select opperation:"
-                android:textAlignment="textStart"
-                android:textSize="20sp"
-                android:textColor="@color/header"
-
-
-                android:textStyle="bold"
-
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-        </LinearLayout>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
 
-        <!--  Getting the wording horizontally next to one-another  -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
-            <TextView
-                android:id="@+id/Easy"
-                android:layout_width="214dp"
-                android:layout_height="match_parent"
-                android:layout_alignParentRight="true"
-                android:lines="1"
-                android:maxLines="2"
-                android:paddingLeft="40dp"
 
-                android:text="Easy"
-                android:textAlignment="textStart"
-                android:textSize="20sp"
-
-                android:textStyle="bold"
-
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-            <TextView
-                android:id="@+id/Addition"
-                android:layout_width="216dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:lines="1"
-                android:maxLines="2"
-                android:paddingLeft="40dp"
-
-                android:text="Addition"
-                android:textAlignment="textStart"
-                android:textSize="20sp"
-                android:textStyle="bold"
-
-
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-
-        </LinearLayout>
-
-
-        <!--  Getting the wording horizontally next to one-another  -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
-
-            <TextView
-                android:id="@+id/Medium"
-                android:layout_width="214dp"
-                android:layout_height="match_parent"
-                android:layout_alignParentLeft="true"
-                android:lines="1"
-                android:maxLines="2"
-                android:paddingLeft="40dp"
-
-                android:text="Medium"
-                android:textAlignment="textStart"
-                android:textSize="20sp"
-
-                android:textStyle="bold"
-
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-            <TextView
-                android:id="@+id/Multiplication"
-                android:layout_width="216dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:lines="1"
-                android:maxLines="2"
-                android:paddingLeft="40dp"
-
-                android:text="Multiplication"
-                android:textAlignment="textStart"
-                android:textSize="20sp"
-                android:textStyle="bold"
-
-
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </LinearLayout>
-
-        <!--  Getting the wording horizontally next to one-another  -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
-
-            <TextView
-                android:id="@+id/Hard"
-                android:layout_width="214dp"
-                android:layout_height="match_parent"
-                android:layout_alignParentLeft="true"
-                android:lines="1"
-                android:maxLines="2"
-                android:paddingLeft="40dp"
-
-                android:text="Hard"
-                android:textAlignment="textStart"
-                android:textSize="20sp"
-
-                android:textStyle="bold"
-
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-            <TextView
-                android:id="@+id/Division"
-                android:layout_width="216dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:lines="1"
-                android:maxLines="2"
-                android:paddingLeft="40dp"
-
-                android:text="Division"
-                android:textAlignment="textStart"
-                android:textSize="20sp"
-                android:textStyle="bold"
-
-
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="51dp">
-
-            <!--   Work around - come back to   -->
-            <TextView
-                android:id="@+id/empty"
-                android:layout_width="215dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:lines="1"
-                android:maxLines="2"
-                android:paddingLeft="40dp"
-
-                android:text=""
-                android:textAlignment="textStart"
-                android:textSize="20sp"
-                android:textStyle="bold"
-
-
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/Subtraction"
-                android:layout_width="216dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:lines="1"
-                android:maxLines="2"
-                android:paddingLeft="40dp"
-
-                android:text="Subtraction"
-                android:textAlignment="textStart"
-                android:textSize="20sp"
-                android:textStyle="bold"
-
-
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="51dp">
-
-            <!--   Work around - come back to   -->
-            <TextView
-                android:id="@+id/empty"
-                android:layout_width="215dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:lines="1"
-                android:maxLines="2"
-                android:paddingLeft="40dp"
-
-                android:text=""
-                android:textAlignment="textStart"
-                android:textSize="20sp"
-                android:textStyle="bold"
-
-
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/number"
-                android:layout_width="216dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:lines="1"
-                android:maxLines="2"
-                android:paddingLeft="40dp"
-
-                android:text="Subtraction"
-                android:textAlignment="textStart"
-                android:textSize="20sp"
-                android:textStyle="bold"
-
-
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </LinearLayout>
 
         <Button
-            android:id="@+id/buttonStart"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:layout_alignParentTop="true"
+            android:id="@+id/buttonRetry"
+            android:layout_width="300dp"
+            android:layout_height="25dp"
             android:layout_alignParentBottom="true"
-            android:layout_marginTop="100dp"
-            android:layout_marginBottom="61dp"
+            android:layout_marginTop="50dp"
+            android:layout_gravity="center"
 
 
             android:background="@color/start"
-            android:text="START"
+            android:text="Retry"
             android:textColor="@color/black"
-            android:textSize="35dp"
+            android:textSize="15sp"
             app:cornerRadius="0dp" />
+    <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="329dp"
+            android:layout_weight="1"
+            android:layout_alignParentBottom="true"
+            app:srcCompat="@drawable/math" />
 
-        <!--   Closing Tags     -->
+    </RelativeLayout>
     </LinearLayout>
+
+    <!--  Getting the wording horizontally next to one-another  -->
+
+
+    <!--   Closing Tags     -->
 
 
 </FrameLayout>

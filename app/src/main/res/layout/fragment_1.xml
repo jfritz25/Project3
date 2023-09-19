@@ -208,7 +208,7 @@
                 android:layout_margin="1dp"
 
                 android:text=""
-                android:textColor=""
+                android:textColor="@color/black"
                 android:textSize="22sp"
                 app:cornerRadius="3dp" />
 

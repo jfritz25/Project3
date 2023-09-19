@@ -56,7 +56,6 @@ class Fragment2 : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val userAnswers = mutableListOf<String>()
         var eqs = savedInstanceState!!.getStringArrayList("eqs")
         var ans = savedInstanceState.getStringArrayList("ans")
         var numOfQs = savedInstanceState.getInt("numofQs")

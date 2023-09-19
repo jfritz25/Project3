@@ -5,6 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.TextView
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -34,9 +38,20 @@ class Fragment3 : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_3, container, false)
+        val view = inflater.inflate(R.layout.fragment_3, container, false)
+        var results = savedInstanceState!!.getInt("finalScore").toString()
+        var answerText = view.findViewById<TextView>(R.id.answers)
+        answerText.text = results
+        return view
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val buttonRetry = view.findViewById<Button>(R.id.buttonRetry)
+        buttonRetry.setOnClickListener {
+            findNavController().navigate(R.id.action_fragment3_to_fragment1)
+        }
+    }
     companion object {
         /**
          * Use this factory method to create a new instance of
