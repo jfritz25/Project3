@@ -6,6 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.RadioGroup
+import android.widget.TextView
+import androidx.navigation.fragment.findNavController
 import net.objecthunter.exp4j.ExpressionBuilder
 
 // TODO: Rename parameter arguments, choose names that match
@@ -36,43 +39,50 @@ class Fragment1 : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_1, container, false)
+        return inflater.inflate(R.layout.fragment_1, container, false)
+    }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         var difficulty = ""
         var type = ""
         var numOfQs = 0
 
         var equationList = mutableListOf<String>()
-        var answerList = mutableListOf<Double>()
+        var answerList = mutableListOf<String>()
 
-        val buttonEasy = view.findViewById<Button>(R.id.buttonEasy)
-        buttonEasy.setOnClickListener {
-            difficulty = "Easy"
-        }
-        val buttonMedium = view.findViewById<Button>(R.id.buttonMedium)
-        buttonEasy.setOnClickListener {
-            difficulty = "Medium"
-        }
-        val buttonHard = view.findViewById<Button>(R.id.buttonHard)
-        buttonEasy.setOnClickListener {
-            difficulty = "Hard"
+        val dif = view.findViewById<RadioGroup>(R.id.difficulties)
+        dif.setOnCheckedChangeListener { _, checkedId ->
+            when (checkedId) {
+                R.id.buttonEasy -> {
+                    difficulty = "Easy"
+                }
+                R.id.buttonMedium -> {
+                    difficulty = "Medium"
+                }
+                R.id.buttonHard -> {
+                    difficulty = "Hard"
+                }
+            }
         }
 
-        val buttonAddition = view.findViewById<Button>(R.id.buttonAddition)
-        buttonEasy.setOnClickListener {
-            type = "+"
-        }
-        val buttonSubtraction = view.findViewById<Button>(R.id.buttonSubtraction)
-        buttonEasy.setOnClickListener {
-            type = "-"
-        }
-        val buttonMultiplication = view.findViewById<Button>(R.id.buttonMultiplication)
-        buttonEasy.setOnClickListener {
-            type = "*"
-        }
-        val buttonDivision = view.findViewById<Button>(R.id.buttonDivision)
-        buttonEasy.setOnClickListener {
-            type = "/"
+        val oper = view.findViewById<RadioGroup>(R.id.operators)
+        oper.setOnCheckedChangeListener { _, checkedId ->
+            when (checkedId) {
+                R.id.buttonAddition -> {
+                    type = "+"
+                }
+                R.id.buttonSubtraction -> {
+                    type = "-"
+                }
+                R.id.buttonMultiplication -> {
+                    type = "*"
+                }
+                R.id.buttonDivision -> {
+                    type = "/"
+                }
+
+            }
         }
         val buttonStart = view.findViewById<Button>(R.id.buttonStart)
         buttonStart.setOnClickListener {
@@ -81,8 +91,13 @@ class Fragment1 : Fragment() {
                     val num1 = (0..10).random()
                     val num2 = (0..10).random()
                     equationList.add("$num1$type$num2")
-                    answerList.add(ExpressionBuilder("$num1$type$num2").build().evaluate())
+                    answerList.add(ExpressionBuilder("$num1$type$num2").build().evaluate().toString())
                 }
+                val bundle = Bundle()
+                bundle.putStringArrayList("eqs",ArrayList(equationList))
+                bundle.putStringArrayList("ans", ArrayList(answerList))
+                bundle.putInt("numofQs",numOfQs)
+                findNavController().navigate(R.id.action_fragment1_to_fragment2, bundle)
 
 
             }
@@ -91,19 +106,28 @@ class Fragment1 : Fragment() {
                     val num1 = (0..25).random()
                     val num2 = (0..25).random()
                     equationList.add("$num1$type$num2")
-                    answerList.add(ExpressionBuilder("$num1$type$num2").build().evaluate())
+                    answerList.add(ExpressionBuilder("$num1$type$num2").build().evaluate().toString())
                 }
+                val bundle = Bundle()
+                bundle.putStringArrayList("eqs",ArrayList(equationList))
+                bundle.putStringArrayList("ans", ArrayList(answerList))
+                bundle.putInt("numofQs",numOfQs)
+                findNavController().navigate(R.id.action_fragment1_to_fragment2,bundle)
             }
-            else{
+            else if (difficulty == "Hard"){
                 for(i in 0..numOfQs){
                     val num1 = (0..50).random()
                     val num2 = (0..50).random()
                     equationList.add("$num1$type$num2")
-                    answerList.add(ExpressionBuilder("$num1$type$num2").build().evaluate())
+                    answerList.add(ExpressionBuilder("$num1$type$num2").build().evaluate().toString())
                 }
+                val bundle = Bundle()
+                bundle.putStringArrayList("eqs",ArrayList(equationList))
+                bundle.putStringArrayList("ans", ArrayList(answerList))
+                bundle.putInt("numofQs",numOfQs)
+                findNavController().navigate(R.id.action_fragment1_to_fragment2,bundle)
 
             }
-            //Something to load second fragment
         }
         val buttonAddQs = view.findViewById<Button>(R.id.buttonAddQs)
         buttonAddQs.setOnClickListener {
@@ -121,9 +145,7 @@ class Fragment1 : Fragment() {
                 QsText.text = numOfQs.toString()
             }
         }
-        return view
     }
-
     companion object {
         /**
          * Use this factory method to create a new instance of

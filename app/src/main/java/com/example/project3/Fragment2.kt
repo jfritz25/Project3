@@ -5,6 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
+import androidx.navigation.fragment.findNavController
+import kotlin.math.round
+import kotlin.math.roundToInt
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -33,10 +39,57 @@ class Fragment2 : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        var eqs = savedInstanceState!!.getStringArrayList("eqs")
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_2, container, false)
+        val view = inflater.inflate(R.layout.fragment_2, container, false)
+        val num1 = view.findViewById<TextView>(R.id.number1TextView)
+        val oper = view.findViewById<TextView>(R.id.operatorTextView)
+        val num2 = view.findViewById<TextView>(R.id.number2TextView)
+        val eqString = eqs!!.get(0)
+        num1.text = eqString[0].toString()
+        oper.text = eqString[1].toString()
+        num2.text = eqString[2].toString()
+        eqs.removeAt(0)
+        return view
+
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val userAnswers = mutableListOf<String>()
+        var eqs = savedInstanceState!!.getStringArrayList("eqs")
+        var ans = savedInstanceState.getStringArrayList("ans")
+        var numOfQs = savedInstanceState.getInt("numofQs")
+        var numCorrect = 0
+        val buttonDone = view.findViewById<Button>(R.id.buttonDone)
+        buttonDone.setOnClickListener {
+            if (ans!!.isNotEmpty()) {
+                val userInput = view.findViewById<EditText>(R.id.userAnswer)
+                val userAnswer = round(userInput.text.toString().toDouble() * 100) / 100
+                val correctAnswer = round(ans!!.get(0).toDouble() * 100) / 100
+                if (userAnswer == correctAnswer) {
+                    numCorrect++
+                }
+                ans.removeAt(0)
+                if (eqs!!.isNotEmpty()) {
+                    val num1 = view.findViewById<TextView>(R.id.number1TextView)
+                    val oper = view.findViewById<TextView>(R.id.operatorTextView)
+                    val num2 = view.findViewById<TextView>(R.id.number2TextView)
+                    val eqString = eqs!!.get(0)
+                    num1.text = eqString[0].toString()
+                    oper.text = eqString[1].toString()
+                    num2.text = eqString[2].toString()
+                    eqs!!.removeAt(0)
+
+                }
+                else{
+                    val bundle = Bundle()
+                    bundle.putString("finalScore","You got $numCorrect out of $numOfQs")
+                    findNavController().navigate(R.id.action_fragment2_to_fragment3,bundle)
+                }
+            }
+        }
+    }
     companion object {
         /**
          * Use this factory method to create a new instance of
