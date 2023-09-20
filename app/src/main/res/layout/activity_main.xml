@@ -1,13 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Define the usability and orientation in Linear Layout first then go into Constraint Layout to arrange this UI components -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".Fragment1"
+    >
+    <ImageView
+        android:id="@+id/imageMath"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/math" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        tools:context=".MainActivity"/>
+
     <!-- This is where the "constraints" or "manual" fixes to the UI occur-->
     <!-- A LinearLayout with the style columnLeft that arranges the buttonson the left side of the page -->
 
@@ -18,303 +31,255 @@
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/math"/>
+        app:srcCompat="@drawable/math" />
 
 
     <!--  Getting the wording horizontally next to one-another  -->
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/selectDifficulty"
-            android:layout_width="216dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:lines="1"
-            android:maxLines="2"
+            android:orientation="horizontal">
 
-            android:text="Select difficulty:"
-            android:textAlignment="textStart"
-            android:textSize="20sp"
-            android:textColor="@color/header"
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="225dp"
+                android:layout_marginBottom="0dp"
+                android:text="@string/Select_Difficulty"
+                android:textStyle="bold"
+                android:textSize="20sp"></TextView>
 
-            android:textStyle="bold"
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="225dp"
+                android:layout_marginBottom="0dp"
+                android:text="@string/Select_Operation"
+                android:textStyle="bold"
+                android:textSize="20sp"></TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioGroup
+                android:id="@+id/difficulties"
+                android:layout_width="200dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="0dp"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/buttonEasy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="onRadioButtonClicked"
+                    android:text="@string/easy"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="20sp" />
+
+                <RadioButton
+                    android:id="@+id/buttonMedium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="onRadioButtonClicked"
+                    android:text="@string/med"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+                <RadioButton
+                    android:id="@+id/buttonHard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="onRadioButtonClicked"
+                    android:text="@string/hard"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="20sp" />
+
+            </RadioGroup>
+
+            <RadioGroup
+                android:id="@+id/operators"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/buttonAddition"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="onRadioButtonClicked"
+                    android:textStyle="bold"
+
+                    android:text="@string/add"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+                <RadioButton
+                    android:id="@+id/buttonMultiplication"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="onRadioButtonClicked"
+                    android:textStyle="bold"
+                    android:text="@string/mult"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+                <RadioButton
+                    android:id="@+id/buttonDivision"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="onRadioButtonClicked"
+                    android:text="@string/div"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+                <RadioButton
+                    android:id="@+id/buttonSubtraction"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="onRadioButtonClicked"
+                    android:text="@string/sub"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="20sp" />
+            </RadioGroup>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="start">
+
+                <RadioGroup
+                    android:id="@+id/selectDifficulty"
+                    android:layout_width="203dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:lines="1"
+                    android:maxLines="2"
+
+                    android:text="Select difficulty:"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/header"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
 
 
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/selectOpperation"
-            android:layout_width="214dp"
-            android:layout_height="match_parent"
-            android:layout_alignParentLeft="true"
-            android:lines="1"
-            android:maxLines="2"
-
-            android:text="Select opperation:"
-            android:textAlignment="textStart"
-            android:textSize="20sp"
-            android:textColor="@color/header"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
 
-            android:textStyle="bold"
+            </LinearLayout>
+        </LinearLayout>
 
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <!--   Work around - come back to   -->
+
+
+            <TextView
+                android:id="@+id/number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="50dp"
+
+
+                android:lines="1"
+                android:maxLines="2"
+                android:paddingLeft="10dp"
+
+                android:text="@string/NOQ"
+                android:textAlignment="textStart"
+                android:textStyle="bold"
+                android:textSize="30sp"
+
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </LinearLayout>
+        <!--   Sets the values in      -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="40dp"
+            >
+
+            <Button
+                android:id="@+id/buttonSubtractQs"
+                style="@style/buttonSymbol"
+                android:layout_height="70dp"
+                android:layout_margin="1dp"
+
+                android:text="@string/minus"
+                android:textColor="@color/header"
+                android:background="@color/white"
+                android:textSize="50sp"
+                android:textAlignment="center"
+                app:cornerRadius="3dp" />
+
+            <TextView
+                android:id="@+id/QsText"
+                style="@style/buttonSymbol"
+                android:layout_height="70dp"
+                android:layout_margin="1dp"
+
+                android:text=""
+                android:textColor="@color/black"
+                android:textSize="22sp"
+                app:cornerRadius="3dp" />
+
+            <Button
+                android:id="@+id/buttonAddQs"
+                style="@style/buttonSymbol"
+                android:layout_height="70dp"
+                android:layout_margin="0dp"
+
+                android:text="@string/plus"
+                android:textColor="@color/header"
+                android:background="@color/white"
+                android:textSize="40sp"
+                app:cornerRadius="3dp" />
+
+
+        </LinearLayout>
+
+        <!--  Start Button for the opening screen to begin the game      -->
+        <Button
+            android:id="@+id/buttonStart"
+            android:layout_width="match_parent"
+            android:layout_height="275dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="61dp"
+
+
+            android:background="@color/start"
+            android:text="START"
+            android:textColor="@color/black"
+            android:textSize="35dp"
+            app:cornerRadius="0dp" />
+
+
+        <!--   Closing Tags     -->
     </LinearLayout>
 
 
-
-    <!--  Getting the wording horizontally next to one-another  -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
-        <TextView
-            android:id="@+id/Easy"
-            android:layout_width="214dp"
-            android:layout_height="match_parent"
-            android:layout_alignParentRight="true"
-            android:lines="1"
-            android:maxLines="2"
-            android:paddingLeft="40dp"
-
-            android:text="Easy"
-            android:textAlignment="textStart"
-            android:textSize="20sp"
-
-            android:textStyle="bold"
-
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-        <TextView
-            android:id="@+id/Addition"
-            android:layout_width="216dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:lines="1"
-            android:maxLines="2"
-            android:paddingLeft="40dp"
-
-            android:text="Addition"
-            android:textAlignment="textStart"
-            android:textSize="20sp"
-            android:textStyle="bold"
-
-
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-
-    </LinearLayout>
-
-
-    <!--  Getting the wording horizontally next to one-another  -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
-
-        <TextView
-            android:id="@+id/Medium"
-            android:layout_width="214dp"
-            android:layout_height="match_parent"
-            android:layout_alignParentLeft="true"
-            android:lines="1"
-            android:maxLines="2"
-            android:paddingLeft="40dp"
-
-            android:text="Medium"
-            android:textAlignment="textStart"
-            android:textSize="20sp"
-
-            android:textStyle="bold"
-
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-        <TextView
-            android:id="@+id/Multiplication"
-            android:layout_width="216dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:lines="1"
-            android:maxLines="2"
-            android:paddingLeft="40dp"
-
-            android:text="Multiplication"
-            android:textAlignment="textStart"
-            android:textSize="20sp"
-            android:textStyle="bold"
-
-
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </LinearLayout>
-
-    <!--  Getting the wording horizontally next to one-another  -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
-
-        <TextView
-            android:id="@+id/Hard"
-            android:layout_width="214dp"
-            android:layout_height="match_parent"
-            android:layout_alignParentLeft="true"
-            android:lines="1"
-            android:maxLines="2"
-            android:paddingLeft="40dp"
-
-            android:text="Hard"
-            android:textAlignment="textStart"
-            android:textSize="20sp"
-
-            android:textStyle="bold"
-
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-        <TextView
-            android:id="@+id/Division"
-            android:layout_width="216dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:lines="1"
-            android:maxLines="2"
-            android:paddingLeft="40dp"
-
-            android:text="Division"
-            android:textAlignment="textStart"
-            android:textSize="20sp"
-            android:textStyle="bold"
-
-
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="51dp">
-
-        <!--   Work around - come back to   -->
-        <TextView
-            android:id="@+id/emptyItem"
-            android:layout_width="215dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:lines="1"
-            android:maxLines="2"
-            android:paddingLeft="40dp"
-
-            android:text=""
-            android:textAlignment="textStart"
-            android:textSize="20sp"
-            android:textStyle="bold"
-
-
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/Subtraction"
-            android:layout_width="216dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:lines="1"
-            android:maxLines="2"
-            android:paddingLeft="40dp"
-
-            android:text="Subtraction"
-            android:textAlignment="textStart"
-            android:textSize="20sp"
-            android:textStyle="bold"
-
-
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="51dp">
-
-        <!--   Work around - come back to   -->
-        <TextView
-            android:id="@+id/empty"
-            android:layout_width="215dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:lines="1"
-            android:maxLines="2"
-            android:paddingLeft="40dp"
-
-            android:text=""
-            android:textAlignment="textStart"
-            android:textSize="20sp"
-            android:textStyle="bold"
-
-
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/number"
-            android:layout_width="216dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:lines="1"
-            android:maxLines="2"
-            android:paddingLeft="40dp"
-
-            android:text="Subtraction"
-            android:textAlignment="textStart"
-            android:textSize="20sp"
-            android:textStyle="bold"
-
-
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/buttonStart"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="100dp"
-        android:layout_marginBottom="61dp"
-
-
-        android:background="@color/start"
-        android:text="START"
-        android:textColor="@color/black"
-        android:textSize="35dp"
-        app:cornerRadius="0dp" />
-
-    <!--   Closing Tags     -->
-</LinearLayout>
+</FrameLayout>

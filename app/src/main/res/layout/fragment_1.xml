@@ -14,50 +14,66 @@
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/math" />
 
-  <LinearLayout
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:background="@color/white"
         android:orientation="vertical"
         tools:context=".MainActivity"/>
 
-        <!-- This is where the "constraints" or "manual" fixes to the UI occur-->
-        <!-- A LinearLayout with the style columnLeft that arranges the buttonson the left side of the page -->
+    <!-- This is where the "constraints" or "manual" fixes to the UI occur-->
+    <!-- A LinearLayout with the style columnLeft that arranges the buttonson the left side of the page -->
 
 
-        <!-- Right Side   -->
+    <!-- Right Side   -->
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/math" />
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/math" />
 
 
-        <!--  Getting the wording horizontally next to one-another  -->
+    <!--  Getting the wording horizontally next to one-another  -->
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <TextView
-            android:layout_width="200dp"
-            android:layout_height="match_parent"
-            android:layout_marginTop="225dp"
-            android:layout_marginBottom="0dp"
-            android:text="Select Difficulties"
-            android:textSize="25sp"></TextView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="225dp"
+                android:layout_marginBottom="0dp"
+                android:text="@string/Select_Difficulty"
+                android:textStyle="bold"
+                android:textSize="20sp"></TextView>
+
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="225dp"
+                android:layout_marginBottom="0dp"
+                android:text="@string/Select_Operation"
+                android:textStyle="bold"
+                android:textSize="20sp"></TextView>
+        </LinearLayout>
 
         <LinearLayout
-            android:layout_width="410dp"
-            android:layout_height="150dp"
-            android:layout_gravity="start">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
             <RadioGroup
                 android:id="@+id/difficulties"
-                android:layout_width="180dp"
-                android:layout_height="wrap_content"
+                android:layout_width="200dp"
+                android:layout_height="match_parent"
                 android:layout_marginTop="0dp"
                 android:orientation="vertical">
 
@@ -66,8 +82,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="onRadioButtonClicked"
-                    android:text="Easy"
+                    android:text="@string/easy"
                     android:textColor="@color/black"
+                    android:textStyle="bold"
                     android:textSize="20sp" />
 
                 <RadioButton
@@ -75,7 +92,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="onRadioButtonClicked"
-                    android:text="Medium"
+                    android:text="@string/med"
+                    android:textStyle="bold"
                     android:textColor="@color/black"
                     android:textSize="20sp" />
 
@@ -84,15 +102,17 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="onRadioButtonClicked"
-                    android:text="Hard"
+                    android:text="@string/hard"
                     android:textColor="@color/black"
+                    android:textStyle="bold"
                     android:textSize="20sp" />
 
             </RadioGroup>
+
             <RadioGroup
                 android:id="@+id/operators"
-                android:layout_width="199dp"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:orientation="vertical">
 
                 <RadioButton
@@ -100,7 +120,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="onRadioButtonClicked"
-                    android:text="Addition"
+                    android:textStyle="bold"
+
+                    android:text="@string/add"
                     android:textColor="@color/black"
                     android:textSize="20sp" />
 
@@ -109,7 +131,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="onRadioButtonClicked"
-                    android:text="Multiplication"
+                    android:textStyle="bold"
+                    android:text="@string/mult"
                     android:textColor="@color/black"
                     android:textSize="20sp" />
 
@@ -118,7 +141,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="onRadioButtonClicked"
-                    android:text="Hard"
+                    android:text="@string/div"
+                    android:textStyle="bold"
                     android:textColor="@color/black"
                     android:textSize="20sp" />
 
@@ -127,10 +151,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="onRadioButtonClicked"
-                    android:text="Subtraction"
+                    android:text="@string/sub"
                     android:textColor="@color/black"
+                    android:textStyle="bold"
                     android:textSize="20sp" />
             </RadioGroup>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -161,7 +187,7 @@
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="51dp">
+            android:layout_height="wrap_content">
 
             <!--   Work around - come back to   -->
 
@@ -170,14 +196,18 @@
                 android:id="@+id/number"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="50dp"
+
+
                 android:lines="1"
                 android:maxLines="2"
                 android:paddingLeft="10dp"
 
-                android:text="Number of questions"
+                android:text="@string/NOQ"
                 android:textAlignment="textStart"
-                android:textSize="30sp"
                 android:textStyle="bold"
+                android:textSize="30sp"
 
 
                 app:layout_constraintEnd_toEndOf="parent"
@@ -185,11 +215,13 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
         </LinearLayout>
-
+        <!--   Sets the values in      -->
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="100dp"
-            android:layout_gravity="center">
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="40dp"
+            >
 
             <Button
                 android:id="@+id/buttonSubtractQs"
@@ -197,8 +229,11 @@
                 android:layout_height="70dp"
                 android:layout_margin="1dp"
 
-                android:text="+"
-                android:textSize="22sp"
+                android:text="@string/minus"
+                android:textColor="@color/header"
+                android:background="@color/white"
+                android:textSize="50sp"
+                android:textAlignment="center"
                 app:cornerRadius="3dp" />
 
             <TextView
@@ -216,21 +251,22 @@
                 android:id="@+id/buttonAddQs"
                 style="@style/buttonSymbol"
                 android:layout_height="70dp"
-                android:layout_margin="1dp"
+                android:layout_margin="0dp"
 
-                android:text="+"
-                android:textSize="22sp"
+                android:text="@string/plus"
+                android:textColor="@color/header"
+                android:background="@color/white"
+                android:textSize="40sp"
                 app:cornerRadius="3dp" />
 
 
         </LinearLayout>
 
+        <!--  Start Button for the opening screen to begin the game      -->
         <Button
             android:id="@+id/buttonStart"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentBottom="true"
+            android:layout_height="275dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="61dp"
 
