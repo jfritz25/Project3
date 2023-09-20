@@ -39,7 +39,7 @@ class Fragment3 : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_3, container, false)
-        var results = requireArguments().getInt("finalScore").toString()
+        var results = requireArguments().getString("finalScore")
         var answerText = view.findViewById<TextView>(R.id.answers)
         answerText.text = results
         return view

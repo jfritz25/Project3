@@ -48,7 +48,7 @@ class Fragment1 : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         var difficulty = ""
         var type = ""
-        var numOfQs = 0
+        var numOfQs = 1
 
         var equationList = mutableListOf<String>()
         var answerList = mutableListOf<String>()
@@ -89,9 +89,14 @@ class Fragment1 : Fragment() {
         val buttonStart = view.findViewById<Button>(R.id.buttonStart)
         buttonStart.setOnClickListener {
             if(difficulty == "Easy"){
-                for(i in 0..numOfQs){
+                for(i in 1..numOfQs){
                     val num1 = (0..10).random()
-                    val num2 = (0..10).random()
+                    val num2 = if(type == "/") {
+                        (1..10).random()
+                    }
+                    else{
+                        (0..10).random()
+                    }
                     equationList.add("$num1$type$num2")
                     answerList.add(ExpressionBuilder("$num1$type$num2").build().evaluate().toString())
                 }
@@ -99,14 +104,20 @@ class Fragment1 : Fragment() {
                 bundle.putStringArrayList("eqs",ArrayList(equationList))
                 bundle.putStringArrayList("ans", ArrayList(answerList))
                 bundle.putInt("numofQs",numOfQs)
+                bundle.putString("oper", type)
                 findNavController().navigate(R.id.action_fragment1_to_fragment2, bundle)
 
 
             }
             else if(difficulty == "Medium"){
-                for(i in 0..numOfQs){
+                for(i in 1..numOfQs){
                     val num1 = (0..25).random()
-                    val num2 = (0..25).random()
+                    val num2 = if(type == "/") {
+                        (1..25).random()
+                    }
+                    else{
+                         (0..25).random()
+                    }
                     equationList.add("$num1$type$num2")
                     answerList.add(ExpressionBuilder("$num1$type$num2").build().evaluate().toString())
                 }
@@ -114,12 +125,18 @@ class Fragment1 : Fragment() {
                 bundle.putStringArrayList("eqs",ArrayList(equationList))
                 bundle.putStringArrayList("ans", ArrayList(answerList))
                 bundle.putInt("numofQs",numOfQs)
+                bundle.putString("oper", type)
                 findNavController().navigate(R.id.action_fragment1_to_fragment2,bundle)
             }
             else if (difficulty == "Hard"){
-                for(i in 0..numOfQs){
+                for(i in 1..numOfQs){
                     val num1 = (0..50).random()
-                    val num2 = (0..50).random()
+                    val num2 = if(type == "/") {
+                        (1..50).random()
+                    }
+                    else{
+                        (0..50).random()
+                    }
                     equationList.add("$num1$type$num2")
                     answerList.add(ExpressionBuilder("$num1$type$num2").build().evaluate().toString())
                 }
@@ -127,6 +144,7 @@ class Fragment1 : Fragment() {
                 bundle.putStringArrayList("eqs",ArrayList(equationList))
                 bundle.putStringArrayList("ans", ArrayList(answerList))
                 bundle.putInt("numofQs",numOfQs)
+                bundle.putString("oper", type)
                 findNavController().navigate(R.id.action_fragment1_to_fragment2,bundle)
 
             }
@@ -141,7 +159,7 @@ class Fragment1 : Fragment() {
         }
         val buttonSubtractQs = view.findViewById<Button>(R.id.buttonSubtractQs)
         buttonSubtractQs.setOnClickListener {
-            if (numOfQs > 0){
+            if (numOfQs > 1){
                 numOfQs--
                 val QsText = view.findViewById<TextView>(R.id.QsText)
                 QsText.text = numOfQs.toString()

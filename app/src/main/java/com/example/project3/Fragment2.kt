@@ -43,12 +43,14 @@ class Fragment2 : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_2, container, false)
         val num1 = view.findViewById<TextView>(R.id.number1TextView)
-        val oper = view.findViewById<TextView>(R.id.operatorTextView)
+        val operView = view.findViewById<TextView>(R.id.operatorTextView)
         val num2 = view.findViewById<TextView>(R.id.number2TextView)
         val eqString = eqs!!.get(0)
-        num1.text = eqString[0].toString()
-        oper.text = eqString[1].toString()
-        num2.text = eqString[2].toString()
+        val oper = requireArguments().getString("oper")
+        val operLoc = eqString.indexOf(oper.toString())
+        num1.text = eqString.subSequence(0,operLoc).toString()
+        operView.text = eqString[operLoc].toString()
+        num2.text = eqString.subSequence(operLoc + 1, eqString.length).toString()
         eqs.removeAt(0)
         return view
     }
@@ -68,16 +70,20 @@ class Fragment2 : Fragment() {
                 if (userAnswer == correctAnswer) {
                     numCorrect++
                 }
+                userInput.setText("")
                 userInput.hint = "Your Answer..."
                 ans.removeAt(0)
+
                 if (eqs!!.isNotEmpty()) {
                     val num1 = view.findViewById<TextView>(R.id.number1TextView)
-                    val oper = view.findViewById<TextView>(R.id.operatorTextView)
+                    val operView = view.findViewById<TextView>(R.id.operatorTextView)
                     val num2 = view.findViewById<TextView>(R.id.number2TextView)
                     val eqString = eqs!!.get(0)
-                    num1.text = eqString[0].toString()
-                    oper.text = eqString[1].toString()
-                    num2.text = eqString[2].toString()
+                    val oper = requireArguments().getString("oper")
+                    val operLoc = eqString.indexOf(oper.toString())
+                    num1.text = eqString.subSequence(0,operLoc).toString()
+                    operView.text = eqString[operLoc].toString()
+                    num2.text = eqString.subSequence(operLoc + 1, eqString.length).toString()
                     eqs!!.removeAt(0)
 
                 }
