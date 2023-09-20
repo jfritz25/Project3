@@ -81,7 +81,6 @@
                     android:id="@+id/buttonEasy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:onClick="onRadioButtonClicked"
                     android:text="@string/easy"
                     android:textColor="@color/black"
                     android:textStyle="bold"
@@ -91,7 +90,6 @@
                     android:id="@+id/buttonMedium"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:onClick="onRadioButtonClicked"
                     android:text="@string/med"
                     android:textStyle="bold"
                     android:textColor="@color/black"
@@ -101,7 +99,6 @@
                     android:id="@+id/buttonHard"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:onClick="onRadioButtonClicked"
                     android:text="@string/hard"
                     android:textColor="@color/black"
                     android:textStyle="bold"
@@ -119,7 +116,6 @@
                     android:id="@+id/buttonAddition"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:onClick="onRadioButtonClicked"
                     android:textStyle="bold"
 
                     android:text="@string/add"
@@ -130,7 +126,6 @@
                     android:id="@+id/buttonMultiplication"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:onClick="onRadioButtonClicked"
                     android:textStyle="bold"
                     android:text="@string/mult"
                     android:textColor="@color/black"
@@ -140,7 +135,6 @@
                     android:id="@+id/buttonDivision"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:onClick="onRadioButtonClicked"
                     android:text="@string/div"
                     android:textStyle="bold"
                     android:textColor="@color/black"
@@ -150,7 +144,6 @@
                     android:id="@+id/buttonSubtraction"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:onClick="onRadioButtonClicked"
                     android:text="@string/sub"
                     android:textColor="@color/black"
                     android:textStyle="bold"
@@ -244,8 +237,9 @@
 
                 android:text=""
                 android:textColor="@color/black"
-                android:textSize="22sp"
-                app:cornerRadius="3dp" />
+                android:textSize="30sp"
+                app:cornerRadius="3dp"
+                android:gravity="center"/>
 
             <Button
                 android:id="@+id/buttonAddQs"

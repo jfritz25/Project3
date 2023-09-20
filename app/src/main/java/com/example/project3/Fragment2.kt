@@ -39,7 +39,7 @@ class Fragment2 : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        var eqs = savedInstanceState!!.getStringArrayList("eqs")
+        var eqs = requireArguments().getStringArrayList("eqs")
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_2, container, false)
         val num1 = view.findViewById<TextView>(R.id.number1TextView)
@@ -51,14 +51,13 @@ class Fragment2 : Fragment() {
         num2.text = eqString[2].toString()
         eqs.removeAt(0)
         return view
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        var eqs = savedInstanceState!!.getStringArrayList("eqs")
-        var ans = savedInstanceState.getStringArrayList("ans")
-        var numOfQs = savedInstanceState.getInt("numofQs")
+        var eqs = requireArguments().getStringArrayList("eqs")
+        var ans = requireArguments().getStringArrayList("ans")
+        var numOfQs = requireArguments().getInt("numofQs")
         var numCorrect = 0
         val buttonDone = view.findViewById<Button>(R.id.buttonDone)
         buttonDone.setOnClickListener {
@@ -69,6 +68,7 @@ class Fragment2 : Fragment() {
                 if (userAnswer == correctAnswer) {
                     numCorrect++
                 }
+                userInput.hint = "Your Answer..."
                 ans.removeAt(0)
                 if (eqs!!.isNotEmpty()) {
                     val num1 = view.findViewById<TextView>(R.id.number1TextView)
