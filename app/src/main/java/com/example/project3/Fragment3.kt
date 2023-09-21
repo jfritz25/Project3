@@ -21,11 +21,24 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class Fragment3 : Fragment() {
-    // TODO: Rename and change types of parameters
+    /**
+     * Fragment 3 uses the parameters to store the values it holds
+     *
+     * @param param1 Parameter 1 - String.
+     * @param param2 Parameter 2 - String.
+     */
+
     private var param1: String? = null
     private var param2: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        /**
+         * Overriding the onCreate() to accommodate the values save instance states and replaces any
+         * previous instances of the state
+         * *
+         * @param Bundle
+         * @return A new instance of fragment Fragment3.
+         */
         super.onCreate(savedInstanceState)
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
@@ -34,9 +47,21 @@ class Fragment3 : Fragment() {
     }
 
     override fun onCreateView(
+
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View?
+    {
+        /**
+         * By overwriting onCreateView we are able to dictate the layout that will be inflated and retrieve
+         * the results from the user's input and displaying it on the screen
+         *
+         * @param LayoutInflater inflater
+         * @param ViewGroup container
+         * @param savedInstanceState Bundle
+         * @return the view
+         */
+
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_3, container, false)
         var results = requireArguments().getString("finalScore")
@@ -47,6 +72,14 @@ class Fragment3 : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        /**
+         * Overriding the onViewCreate() to direct Fragment3 to Fragmetn 2 when the button "Retry" is
+         * pressed
+         *
+         * @param view View
+         * @param savedInstanceState Bundle
+         * @return A new instance of fragment Fragment3.
+         */
         val buttonRetry = view.findViewById<Button>(R.id.buttonRetry)
         buttonRetry.setOnClickListener {
             findNavController().navigate(R.id.action_fragment3_to_fragment1)
@@ -54,8 +87,8 @@ class Fragment3 : Fragment() {
     }
     companion object {
         /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
+         * The companion object is used when passing parameters as an argument and passing the values
+         * to this fragment using the provided parameters.
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
