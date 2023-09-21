@@ -27,6 +27,13 @@ class Fragment1 : Fragment() {
     private var param2: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        /**
+         * Overriding the onCreate() to accommodate the values save instance states and replaces any
+         * previous instances of the state
+         * *
+         * @param Bundle
+         * @return A new instance of fragment Fragment3.
+         */
         super.onCreate(savedInstanceState)
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
@@ -38,11 +45,32 @@ class Fragment1 : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        /**
+         * By overwriting onCreateView we are able to inflate with the given viewGroup and the id's they hold
+         * The results from the user's input and displaying it on the screen
+         *
+         * @param LayoutInflater inflater
+         * @param ViewGroup container
+         * @param savedInstanceState Bundle
+         * @return the inflated view
+         */
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_1, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        /**
+         * Overriding the onViewCreate() to direct Fragment1 information that is collected through the
+         * difficulty level, operation, and the number of questions
+         *
+         * For each response, the associative value is assigned to the view and it holds the group
+         * values to be accessed later in Fragment 2 when the "Start" button is presses
+         *
+         *
+         * @param view View
+         * @param savedInstanceState Bundle
+         * @return A new instance of fragment Fragment1.
+         */
         super.onViewCreated(view, savedInstanceState)
         var difficulty = ""
         var type = ""
