@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,6 +25,7 @@ class Fragment3 : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    val args: Fragment3Args by navArgs()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,7 +41,7 @@ class Fragment3 : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_3, container, false)
-        var results = requireArguments().getString("finalScore")
+        var results = args.finalScore
         var answerText = view.findViewById<TextView>(R.id.answers)
         answerText.text = results
         return view

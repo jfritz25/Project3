@@ -1,15 +1,13 @@
 package com.example.project3
 
 import android.os.Bundle
-import android.provider.MediaStore.Audio.Radio
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import net.objecthunter.exp4j.ExpressionBuilder
 
@@ -101,11 +99,9 @@ class Fragment1 : Fragment() {
                     answerList.add(ExpressionBuilder("$num1$type$num2").build().evaluate().toString())
                 }
                 val bundle = Bundle()
-                bundle.putStringArrayList("eqs",ArrayList(equationList))
-                bundle.putStringArrayList("ans", ArrayList(answerList))
-                bundle.putInt("numofQs",numOfQs)
-                bundle.putString("oper", type)
-                findNavController().navigate(R.id.action_fragment1_to_fragment2, bundle)
+                val action = Fragment1Directions.actionFragment1ToFragment2(ArrayList(equationList).toTypedArray(),ArrayList(answerList).toTypedArray()
+                , numOfQs, type)
+                findNavController().navigate(action)
 
 
             }
@@ -121,12 +117,9 @@ class Fragment1 : Fragment() {
                     equationList.add("$num1$type$num2")
                     answerList.add(ExpressionBuilder("$num1$type$num2").build().evaluate().toString())
                 }
-                val bundle = Bundle()
-                bundle.putStringArrayList("eqs",ArrayList(equationList))
-                bundle.putStringArrayList("ans", ArrayList(answerList))
-                bundle.putInt("numofQs",numOfQs)
-                bundle.putString("oper", type)
-                findNavController().navigate(R.id.action_fragment1_to_fragment2,bundle)
+                val action = Fragment1Directions.actionFragment1ToFragment2(ArrayList(equationList).toTypedArray(),ArrayList(answerList).toTypedArray()
+                    , numOfQs, type)
+                findNavController().navigate(action)
             }
             else if (difficulty == "Hard"){
                 for(i in 1..numOfQs){
@@ -140,12 +133,9 @@ class Fragment1 : Fragment() {
                     equationList.add("$num1$type$num2")
                     answerList.add(ExpressionBuilder("$num1$type$num2").build().evaluate().toString())
                 }
-                val bundle = Bundle()
-                bundle.putStringArrayList("eqs",ArrayList(equationList))
-                bundle.putStringArrayList("ans", ArrayList(answerList))
-                bundle.putInt("numofQs",numOfQs)
-                bundle.putString("oper", type)
-                findNavController().navigate(R.id.action_fragment1_to_fragment2,bundle)
+                val action = Fragment1Directions.actionFragment1ToFragment2(ArrayList(equationList).toTypedArray(),ArrayList(answerList).toTypedArray()
+                    , numOfQs, type)
+                findNavController().navigate(action)
 
             }
         }

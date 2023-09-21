@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import kotlin.math.round
 import kotlin.math.roundToInt
 
@@ -16,6 +17,7 @@ import kotlin.math.roundToInt
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
+
 
 /**
  * A simple [Fragment] subclass.
@@ -26,7 +28,7 @@ class Fragment2 : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-
+    val args: Fragment2Args by navArgs()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -39,15 +41,15 @@ class Fragment2 : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        var eqs = requireArguments().getStringArrayList("eqs")
-        // Inflate the layout for this fragment
+
+        var eqs = ArrayList(args.eqs.toList())
         val view = inflater.inflate(R.layout.fragment_2, container, false)
         val num1 = view.findViewById<TextView>(R.id.number1TextView)
         val operView = view.findViewById<TextView>(R.id.operatorTextView)
         val num2 = view.findViewById<TextView>(R.id.number2TextView)
         val eqString = eqs!!.get(0)
-        val oper = requireArguments().getString("oper")
-        val operLoc = eqString.indexOf(oper.toString())
+        val oper = args.type
+        val operLoc = eqString.indexOf(oper)
         num1.text = eqString.subSequence(0,operLoc).toString()
         operView.text = eqString[operLoc].toString()
         num2.text = eqString.subSequence(operLoc + 1, eqString.length).toString()
@@ -57,9 +59,9 @@ class Fragment2 : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        var eqs = requireArguments().getStringArrayList("eqs")
-        var ans = requireArguments().getStringArrayList("ans")
-        var numOfQs = requireArguments().getInt("numofQs")
+        var eqs = ArrayList(args.eqs.toList().subList(1, args.eqs.size))
+        var ans = ArrayList(args.ans.toList())
+        val numOfQs = args.numofQs
         var numCorrect = 0
         val buttonDone = view.findViewById<Button>(R.id.buttonDone)
         buttonDone.setOnClickListener {
@@ -79,8 +81,8 @@ class Fragment2 : Fragment() {
                     val operView = view.findViewById<TextView>(R.id.operatorTextView)
                     val num2 = view.findViewById<TextView>(R.id.number2TextView)
                     val eqString = eqs!!.get(0)
-                    val oper = requireArguments().getString("oper")
-                    val operLoc = eqString.indexOf(oper.toString())
+                    val oper = args.type
+                    val operLoc = eqString.indexOf(oper)
                     num1.text = eqString.subSequence(0,operLoc).toString()
                     operView.text = eqString[operLoc].toString()
                     num2.text = eqString.subSequence(operLoc + 1, eqString.length).toString()
@@ -88,9 +90,8 @@ class Fragment2 : Fragment() {
 
                 }
                 else{
-                    val bundle = Bundle()
-                    bundle.putString("finalScore","You got $numCorrect out of $numOfQs")
-                    findNavController().navigate(R.id.action_fragment2_to_fragment3,bundle)
+                    val action = Fragment2Directions.actionFragment2ToFragment3("You got $numCorrect out of $numOfQs")
+                    findNavController().navigate(action)
                 }
             }
         }
