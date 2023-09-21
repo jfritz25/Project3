@@ -47,7 +47,7 @@ The following **required** functionality is completed:
 Watch a demonstration of each difficulty level and operation demonstrated in the gif available on Github
 Here's a walkthrough of a few cases:
 
-<img src='https://github.com/jfritz25/Calculator2.0/blob/master/app/src/main/java/com/example/calculator/Project_%202_GIF.gif' title='Project2 Video Walkthrough' width='50%' height = '50%' alt='Video Walkthrough' />
+<img src='https://github.com/jfritz25/Project3/blob/master/app/src/main/java/com/example/project3/RecordingProject3.gif' title='Project3 Video Walkthrough' width='50%' height = '50%' alt='Video Walkthrough' />
 
 GIF created with [CloudConvert](https://cloudconvert.com/).
 
