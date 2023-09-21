@@ -34,7 +34,6 @@ The following **required** functionality is completed:
 <br>
 _the number sequence is randomly generated and is not easily replicated_
 <br>
-<span style="font-size: smaller;"><strong> tested prior to change of C button as mentioned in the inscribe post made by Ashley Steitz </strong></span>
 
 **Demonstrated**
 * [Easy] [Subtraction] [2 Questions] [Math Completed] [Done x 2 (after each problem)] [SCORE (2/2)] [Retry]  
