@@ -94,6 +94,7 @@ class Fragment2 : Fragment() {
                     findNavController().navigate(action)
                 }
             }
+
         }
     }
     companion object {

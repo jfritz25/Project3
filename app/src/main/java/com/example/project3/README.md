@@ -34,6 +34,7 @@ The following **required** functionality is completed:
 <br>
 _the number sequence is randomly generated and is not easily replicated_
 <br>
+Safeargs was implemented to transfer data from fragment to fragment. That was we can access our equations and solutions in fragment 2 and the final score in fragment 3
 
 **Demonstrated** 4753
 * [Easy] [Subtraction] [2 Questions] [ 8 - 8 = 0 | 10 - 6 = 4 ] [Done x 2 (after each problem)] [SCORE (2/2)] [Retry]  
