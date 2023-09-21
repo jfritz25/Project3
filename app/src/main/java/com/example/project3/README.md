@@ -35,12 +35,12 @@ The following **required** functionality is completed:
 _the number sequence is randomly generated and is not easily replicated_
 <br>
 
-**Demonstrated**
-* [Easy] [Subtraction] [2 Questions] [Math Completed] [Done x 2 (after each problem)] [SCORE (2/2)] [Retry]  
-* [Medium] [Division] [5 Questions] [Math Completed] [Done x 5 (after each problem)] [SCORE (2/5)] [Retry]
-* [Medium] [Multiplication] [3 Questions] [Math Completed] [Done x 3 (after each problem)] [SCORE (2/3)] [Retry]
-* [Hard] [Addition] [10 Questions] [Math Completed] [Done x 10 (after each problem)] [SCORE (5/10)] [Retry]
-* [Medium] [Subtraction] [3 Questions] [Math Completed] [Done x 3 (after each problem)] [SCORE (2/3)] [END]
+**Demonstrated** 4753
+* [Easy] [Subtraction] [2 Questions] [ 8 - 8 = 0 | 10 - 6 = 4 ] [Done x 2 (after each problem)] [SCORE (2/2)] [Retry]  
+* [Medium] [Division] [5 Questions] [1/12 = 1 | 23/5 = 5 | 6/18 = .33 | 0/21 = 0 | 18/15 = 1] [Done x 5 (after each problem)] [SCORE (2/5)] [Retry]
+* [Medium] [Multiplication] [3 Questions] [ 10 x 17 = 170| 25 * 22 = 232|9 * 4 = 36] [Done x 3 (after each problem)] [SCORE (2/3)] [Retry]
+* [Hard] [Addition] [10 Questions] [30 + 26  =  56 |43 + 9 = 52| 49 + 10 = 59| 37 + 41 = 53| 2 + 22 =24 | 34 + 42 = 75| 14 + 8 = 31 |40 + 23 = 63| 12 + 18 = 40|41 + 18 = 12|Completed] [Done x 10 (after each problem)] [SCORE (5/10)] [Retry]
+* [Medium] [Subtraction] [3 Questions] [18 - 25 =  122| 18 - 6 = 12 |20 - 5 = 15] [Done x 3 (after each problem)] [SCORE (2/3)] [END]
 
 
 ---
