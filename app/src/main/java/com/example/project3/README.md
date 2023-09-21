@@ -36,10 +36,11 @@ The following **required** functionality is completed:
 <span style="font-size: smaller;"><strong> tested prior to change of C button as mentioned in the inscribe post made by Ashley Steitz </strong></span>
 
 **Demonstrated**
-* [Easy] [Addition] [5 Questions] [Math Completed] [Done x 5 (after each problem)] [SCORE] [Retry]  
-* [Hard] [Multiplication] [3 Questions] [Math Completed] [Done x 3 (after each problem)] [SCORE] [Rety]
-* [Medium] [Subtraction] [2 Questions] [Math Completed] [Done x 2 (after each problem)] [SCORE] [Retry]
-* [Hard] [Division] [10 Questions] [Math Completed] [Done x 10 (after each problem)] [SCORE] [END]
+* [Easy] [Subtraction] [2 Questions] [Math Completed] [Done x 2 (after each problem)] [SCORE (2/2)] [Retry]  
+* [Medium] [Division] [5 Questions] [Math Completed] [Done x 5 (after each problem)] [SCORE (2/5)] [Retry]
+* [Medium] [Multiplication] [3 Questions] [Math Completed] [Done x 3 (after each problem)] [SCORE (2/3)] [Retry]
+* [Hard] [Addition] [10 Questions] [Math Completed] [Done x 10 (after each problem)] [SCORE (5/10)] [Retry]
+* [Medium] [Subtraction] [3 Questions] [Math Completed] [Done x 3 (after each problem)] [SCORE (2/3)] [END]
 
 
 ---
