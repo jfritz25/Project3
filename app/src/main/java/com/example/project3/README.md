@@ -29,7 +29,7 @@ This takes them to the final fragment page.
 Finally, Fragment 3 displays the score of the player and offers a "Retry" button to take them back to the start to play the game again!
 
 ## Functionality
-'**' indicates tested in GIF  
+'*' indicates tested in GIF  
 The following **required** functionality is completed:
 <br>
 _the number sequence is randomly generated and is not easily replicated_
