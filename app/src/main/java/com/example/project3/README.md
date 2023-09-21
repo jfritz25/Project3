@@ -31,7 +31,7 @@ Finally, Fragment 3 displays the score of the player and offers a "Retry" button
 ## Functionality
 '**' indicates tested in GIF  
 The following **required** functionality is completed:
-* the number sequence is randomly generated and is not easily replicated*
+_the number sequence is randomly generated and is not easily replicated_
 <br>
 <span style="font-size: smaller;"><strong> tested prior to change of C button as mentioned in the inscribe post made by Ashley Steitz </strong></span>
 
