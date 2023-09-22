@@ -41,7 +41,7 @@ class Fragment2 : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
+        // creates the view that is seen in the fragment 2 when the user is entering values for desired difficulty level and operator
         var eqs = ArrayList(args.eqs.toList())
         val view = inflater.inflate(R.layout.fragment_2, container, false)
         val num1 = view.findViewById<TextView>(R.id.number1TextView)
@@ -58,6 +58,7 @@ class Fragment2 : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        // instanciation of the lists used to build up the expected and user given outputs
         super.onViewCreated(view, savedInstanceState)
         var eqs = ArrayList(args.eqs.toList().subList(1, args.eqs.size))
         var ans = ArrayList(args.ans.toList())
@@ -65,6 +66,7 @@ class Fragment2 : Fragment() {
         var numCorrect = 0
         val buttonDone = view.findViewById<Button>(R.id.buttonDone)
         buttonDone.setOnClickListener {
+            // finds the answer and determines if it matches the expected response (rounding is used in division)
             if (ans!!.isNotEmpty()) {
                 val userInput = view.findViewById<EditText>(R.id.userAnswer)
                 val userAnswer = round(userInput.text.toString().toDouble() * 100) / 100
@@ -75,7 +77,7 @@ class Fragment2 : Fragment() {
                 userInput.setText("")
                 userInput.hint = "Your Answer..."
                 ans.removeAt(0)
-
+                // evaluates the given response and determines the score for the user
                 if (eqs!!.isNotEmpty()) {
                     val num1 = view.findViewById<TextView>(R.id.number1TextView)
                     val operView = view.findViewById<TextView>(R.id.operatorTextView)
@@ -89,6 +91,7 @@ class Fragment2 : Fragment() {
                     eqs!!.removeAt(0)
 
                 }
+                // passes the score info from fragment 2 -> fragment 3
                 else{
                     val action = Fragment2Directions.actionFragment2ToFragment3("You got $numCorrect out of $numOfQs")
                     findNavController().navigate(action)
@@ -100,7 +103,7 @@ class Fragment2 : Fragment() {
     companion object {
         /**
          * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
+         * this fragment using the provided parameters with safe args.
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.

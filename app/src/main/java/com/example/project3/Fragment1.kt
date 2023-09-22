@@ -31,7 +31,7 @@ class Fragment1 : Fragment() {
          * Overriding the onCreate() to accommodate the values save instance states and replaces any
          * previous instances of the state
          * *
-         * @param Bundle
+         * @param Bundle of safeargs passed in
          * @return A new instance of fragment Fragment3.
          */
         super.onCreate(savedInstanceState)
@@ -76,9 +76,11 @@ class Fragment1 : Fragment() {
         var type = ""
         var numOfQs = 1
 
+        // lists for storing the questions and expected answers asked/recieved to/by the user
         var equationList = mutableListOf<String>()
         var answerList = mutableListOf<String>()
 
+        // determines which difficulty level was selected from the radio button based on id then passed to fragment 2
         val dif = view.findViewById<RadioGroup>(R.id.difficulties)
         dif.setOnCheckedChangeListener { _, checkedId ->
             when (checkedId) {
@@ -93,7 +95,7 @@ class Fragment1 : Fragment() {
                 }
             }
         }
-
+        // determines which operator was selected from the radio button based on id then passed to fragment 2
         val oper = view.findViewById<RadioGroup>(R.id.operators)
         oper.setOnCheckedChangeListener { _, checkedId ->
             when (checkedId) {
@@ -112,6 +114,7 @@ class Fragment1 : Fragment() {
 
             }
         }
+        // randomly generates numbers 0 - 10 and adds them to a list for fragment 2
         val buttonStart = view.findViewById<Button>(R.id.buttonStart)
         buttonStart.setOnClickListener {
             if(difficulty == "Easy"){
@@ -133,6 +136,7 @@ class Fragment1 : Fragment() {
 
 
             }
+            // randomly generates numbers 0 - 25 and adds them to a list for fragment 2
             else if(difficulty == "Medium"){
                 for(i in 1..numOfQs){
                     val num1 = (0..25).random()
@@ -149,6 +153,7 @@ class Fragment1 : Fragment() {
                     , numOfQs, type)
                 findNavController().navigate(action)
             }
+            // randomly generates numbers 0 - 50 and adds them to a list for fragment 2
             else if (difficulty == "Hard"){
                 for(i in 1..numOfQs){
                     val num1 = (0..50).random()
@@ -167,6 +172,8 @@ class Fragment1 : Fragment() {
 
             }
         }
+
+        // used to determine the number of items and then set the value for displaying
         val buttonAddQs = view.findViewById<Button>(R.id.buttonAddQs)
         buttonAddQs.setOnClickListener {
             if (numOfQs < 10){

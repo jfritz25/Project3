@@ -1,3 +1,4 @@
+// added in the safe args required for rubric
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -36,6 +37,7 @@ android {
     }
 }
 
+// added in the implementation for the safe args
 dependencies {
 
     implementation("androidx.core:core-ktx:1.9.0")

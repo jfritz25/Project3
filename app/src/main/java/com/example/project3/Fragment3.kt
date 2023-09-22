@@ -67,6 +67,7 @@ class Fragment3 : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_3, container, false)
         var results = args.finalScore
+        // shows the answers and retives them from the safe args passed into fragment 3 by fragment 2
         var answerText = view.findViewById<TextView>(R.id.answers)
         answerText.text = results
         return view
@@ -82,6 +83,8 @@ class Fragment3 : Fragment() {
          * @param savedInstanceState Bundle
          * @return A new instance of fragment Fragment3.
          */
+
+        // when they want to retry -> go back to fragment 1
         val buttonRetry = view.findViewById<Button>(R.id.buttonRetry)
         buttonRetry.setOnClickListener {
             findNavController().navigate(R.id.action_fragment3_to_fragment1)
