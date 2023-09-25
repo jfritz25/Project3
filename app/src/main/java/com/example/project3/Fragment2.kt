@@ -29,6 +29,7 @@ class Fragment2 : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    public var precentage: Boolean? = false
     val args: Fragment2Args by navArgs()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -97,9 +98,9 @@ class Fragment2 : Fragment() {
                     eqs!!.removeAt(0)
 
                 }
-                // passes the score info from fragment 2 -> fragment 3
+                // passes the score info from fragment 2 -> fragment 1
                 else{
-                    val action = Fragment2Directions.actionFragment2ToFragment3("You got $numCorrect out of $numOfQs")
+                    val action = Fragment2Directions.actionFragment2ToFragment1("You got $numCorrect out of $numOfQs")
                     findNavController().navigate(action)
                 }
             }

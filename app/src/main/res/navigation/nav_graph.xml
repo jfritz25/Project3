@@ -16,8 +16,8 @@
         android:id="@+id/fragment2"
         android:name="com.example.project3.Fragment2">
         <action
-            android:id="@+id/action_fragment2_to_fragment3"
-            app:destination="@id/fragment3" />
+            android:id="@+id/action_fragment2_to_fragment1"
+            app:destination="@id/fragment1" />
 
 
         <argument android:name="eqs"
@@ -30,14 +30,9 @@
         <argument android:name="type"
             app:argType="string"
             />
+        <argument android:name="result"
+            app:argType="boolean"
+            />
     </fragment>
-    <fragment
-        android:id="@+id/fragment3"
-        android:name="com.example.project3.Fragment3">
-        <action
-            android:id="@+id/action_fragment3_to_fragment1"
-            app:destination="@id/fragment1" />
-        <argument android:name="finalScore"
-            app:argType="string" />
-    </fragment>
+
 </navigation>
