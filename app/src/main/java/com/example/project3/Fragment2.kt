@@ -1,5 +1,6 @@
 package com.example.project3
 
+import android.media.MediaPlayer
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -73,6 +74,11 @@ class Fragment2 : Fragment() {
                 val correctAnswer = round(ans!!.get(0).toDouble() * 100) / 100
                 if (userAnswer == correctAnswer) {
                     numCorrect++
+
+                    // added in to make button noise
+                    val resourceId = resources.getIdentifier("correct_ans","mp3","com.example.project3")
+                    val mediaPlayer = MediaPlayer.create(context, resourceId)
+                    mediaPlayer.start() // no need to call prepare(); create() does that for you
                 }
                 userInput.setText("")
                 userInput.hint = "Your Answer..."
