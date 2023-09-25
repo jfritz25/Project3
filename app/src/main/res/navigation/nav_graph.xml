@@ -22,6 +22,9 @@
         <argument android:name="oper"
             app:argType="string"
             android:defaultValue=""/>
+        <argument android:name="beenToTwo"
+            app:argType="boolean"
+            android:defaultValue="false"/>
     </fragment>
 
     <fragment

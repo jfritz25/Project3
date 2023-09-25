@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import kotlin.math.round
@@ -77,14 +78,17 @@ class Fragment2 : Fragment() {
                 val correctAnswer = round(ans!!.get(0).toDouble() * 100) / 100
                 if (userAnswer == correctAnswer) {
                     numCorrect++
-                    if (numCorrect / numOfQs > 0.8) {
-                        result = true
-                        val mediaPlayer = MediaPlayer.create(context, R.raw.correct_ans)
-                        mediaPlayer.start() // no need to call prepare(); create() does that for you
-                    } else {
-                        val mediaPlayer = MediaPlayer.create(context, R.raw.wrong_ans)
-                        mediaPlayer.start()
-                    }
+                    val mediaPlayer = MediaPlayer.create(context, R.raw.correct_ans)
+                    mediaPlayer.start() // no need to call prepare(); create() does that for you
+                    result = numCorrect / numOfQs > 0.8
+                    Toast.makeText(requireContext(), "Great job, I love you!", Toast.LENGTH_SHORT).show()
+                }
+                else {
+                    result = numCorrect / numOfQs > 0.8
+                    val mediaPlayer = MediaPlayer.create(context, R.raw.wrong_ans)
+                    mediaPlayer.start()
+                    Toast.makeText(requireContext(), "Bad job, I hate you!", Toast.LENGTH_SHORT).show()
+                }
                     userInput.setText("")
                     userInput.hint = "Your Answer..."
                     ans.removeAt(0)
@@ -107,7 +111,8 @@ class Fragment2 : Fragment() {
                             result,
                             "$numCorrect",
                             "$numOfQs",
-                            "$oper"
+                            "$oper",
+                            true
                         )
                         findNavController().navigate(action)
                     }
@@ -115,7 +120,6 @@ class Fragment2 : Fragment() {
 
             }
         }
-    }
     companion object {
         /**
          * Use this factory method to create a new instance of

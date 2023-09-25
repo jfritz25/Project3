@@ -40,30 +40,29 @@ class Fragment1 : Fragment() {
          * @return A new instance of fragment Fragment3.
          */
         super.onCreate(savedInstanceState)
-        val result = args.result
-        if(!result){
-            Toast.makeText(requireContext(), "You got ${args.numCorrect} out of ${args.numOfQs} correct in ${args.oper}. You need to practice more!", Toast.LENGTH_SHORT).show()
+        arguments?.let {
+            param1 = it.getString(ARG_PARAM1)
+            param2 = it.getString(ARG_PARAM2)
         }
-        Toast.makeText(requireContext(), "You got ${args.numCorrect} out of ${args.numOfQs} correct in ${args.oper}. Good Work!", Toast.LENGTH_SHORT).show()
-
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        /**
-         * By overwriting onCreateView we are able to inflate with the given viewGroup and the id's they hold
-         * The results from the user's input and displaying it on the screen
-         *
-         * @param LayoutInflater inflater
-         * @param ViewGroup container
-         * @param savedInstanceState Bundle
-         * @return the inflated view
-         */
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_1, container, false)
-    }
+        override fun onCreateView(
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
+        ): View? {
+            /**
+             * By overwriting onCreateView we are able to inflate with the given viewGroup and the id's they hold
+             * The results from the user's input and displaying it on the screen
+             *
+             * @param LayoutInflater inflater
+             * @param ViewGroup container
+             * @param savedInstanceState Bundle
+             * @return the inflated view
+             */
+            // Inflate the layout for this fragment
+            return inflater.inflate(R.layout.fragment_1, container, false)
+        }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         /**
@@ -83,10 +82,22 @@ class Fragment1 : Fragment() {
         var type = ""
         var numOfQs = 1
 
-        // lists for storing the questions and expected answers asked/recieved to/by the user
+        // lists for storing the questions and expected answers asked/received to/by the user
         var equationList = mutableListOf<String>()
         var answerList = mutableListOf<String>()
 
+        val result = args.result
+        val beenToTwo = args.beenToTwo
+        val message = view.findViewById<TextView>(R.id.Message)
+        if(beenToTwo) {
+            if (!result) {
+                message.text =
+                    "You got ${args.numCorrect} out of ${args.numOfQs} correct in ${args.oper}. You need to practice more!"
+            } else {
+                message.text =
+                    "You got ${args.numCorrect} out of ${args.numOfQs} correct in ${args.oper}. Good Work!"
+            }
+        }
         // determines which difficulty level was selected from the radio button based on id then passed to fragment 2
         val dif = view.findViewById<RadioGroup>(R.id.difficulties)
         dif.setOnCheckedChangeListener { _, checkedId ->
