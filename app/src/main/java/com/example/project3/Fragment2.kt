@@ -77,43 +77,43 @@ class Fragment2 : Fragment() {
                 val correctAnswer = round(ans!!.get(0).toDouble() * 100) / 100
                 if (userAnswer == correctAnswer) {
                     numCorrect++
-                    if(numCorrect / numOfQs > 0.8){
+                    if (numCorrect / numOfQs > 0.8) {
                         result = true
+                        val mediaPlayer = MediaPlayer.create(context, R.raw.correct_ans)
+                        mediaPlayer.start() // no need to call prepare(); create() does that for you
+                    } else {
+                        val mediaPlayer = MediaPlayer.create(context, R.raw.wrong_ans)
+                        mediaPlayer.start()
                     }
+                    userInput.setText("")
+                    userInput.hint = "Your Answer..."
+                    ans.removeAt(0)
+                    // evaluates the given response and determines the score for the user
+                    if (eqs!!.isNotEmpty()) {
+                        val num1 = view.findViewById<TextView>(R.id.number1TextView)
+                        val operView = view.findViewById<TextView>(R.id.operatorTextView)
+                        val num2 = view.findViewById<TextView>(R.id.number2TextView)
+                        val eqString = eqs!!.get(0)
+                        val operLoc = eqString.indexOf(oper)
+                        num1.text = eqString.subSequence(0, operLoc).toString()
+                        operView.text = eqString[operLoc].toString()
+                        num2.text = eqString.subSequence(operLoc + 1, eqString.length).toString()
+                        eqs!!.removeAt(0)
 
-                    // added in to make button noise
-                    val resourceId = resources.getIdentifier("correct_ans","mp3","com.example.project3")
-                    val mediaPlayer = MediaPlayer.create(context, resourceId)
-                    mediaPlayer.start() // no need to call prepare(); create() does that for you
+                    }
+                    // passes the score info from fragment 2 -> fragment 1
+                    else {
+                        val action = Fragment2Directions.actionFragment2ToFragment1(
+                            result,
+                            "$numCorrect",
+                            "$numOfQs",
+                            "$oper"
+                        )
+                        findNavController().navigate(action)
+                    }
                 }
-                else{
-                    val resourceId = resources.getIdentifier("incorrect_ans","mp3","com.example.project3")
-                    val mediaPlayer = MediaPlayer.create(context, resourceId)
-                    mediaPlayer.start()
-                }
-                userInput.setText("")
-                userInput.hint = "Your Answer..."
-                ans.removeAt(0)
-                // evaluates the given response and determines the score for the user
-                if (eqs!!.isNotEmpty()) {
-                    val num1 = view.findViewById<TextView>(R.id.number1TextView)
-                    val operView = view.findViewById<TextView>(R.id.operatorTextView)
-                    val num2 = view.findViewById<TextView>(R.id.number2TextView)
-                    val eqString = eqs!!.get(0)
-                    val operLoc = eqString.indexOf(oper)
-                    num1.text = eqString.subSequence(0,operLoc).toString()
-                    operView.text = eqString[operLoc].toString()
-                    num2.text = eqString.subSequence(operLoc + 1, eqString.length).toString()
-                    eqs!!.removeAt(0)
 
-                }
-                // passes the score info from fragment 2 -> fragment 1
-                else{
-                    val action = Fragment2Directions.actionFragment2ToFragment1(result,"$numCorrect","$numOfQs", "$oper")
-                    findNavController().navigate(action)
-                }
             }
-
         }
     }
     companion object {
