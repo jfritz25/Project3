@@ -1,5 +1,7 @@
 package com.example.project3
 
+import android.annotation.SuppressLint
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -64,6 +66,7 @@ class Fragment1 : Fragment() {
         }
 
 
+    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         /**
          * Overriding the onViewCreate() to direct Fragment1 information that is collected through the
@@ -93,9 +96,11 @@ class Fragment1 : Fragment() {
             if (!result) {
                 message.text =
                     "You got ${args.numCorrect} out of ${args.numOfQs} correct in ${args.oper}. You need to practice more!"
+                message.setTextColor(Color.RED)
             } else {
                 message.text =
                     "You got ${args.numCorrect} out of ${args.numOfQs} correct in ${args.oper}. Good Work!"
+                message.setTextColor(Color.GRAY)
             }
         }
         // determines which difficulty level was selected from the radio button based on id then passed to fragment 2
