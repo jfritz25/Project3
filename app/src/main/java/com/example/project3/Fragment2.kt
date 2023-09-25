@@ -67,6 +67,8 @@ class Fragment2 : Fragment() {
         val numOfQs = args.numofQs
         var numCorrect = 0
         val buttonDone = view.findViewById<Button>(R.id.buttonDone)
+        val oper = args.type
+        var result = false
         buttonDone.setOnClickListener {
             // finds the answer and determines if it matches the expected response (rounding is used in division)
             if (ans!!.isNotEmpty()) {
@@ -75,12 +77,18 @@ class Fragment2 : Fragment() {
                 val correctAnswer = round(ans!!.get(0).toDouble() * 100) / 100
                 if (userAnswer == correctAnswer) {
                     numCorrect++
-                    val mediaPlayer = MediaPlayer.create(context, R.raw.correct_ans)
-                    mediaPlayer.start()
+                    if(numCorrect / numOfQs > 0.8){
+                        result = true
+                    }
+
+                    // added in to make button noise
+                    val resourceId = resources.getIdentifier("correct_ans","mp3","com.example.project3")
+                    val mediaPlayer = MediaPlayer.create(context, resourceId)
+                    mediaPlayer.start() // no need to call prepare(); create() does that for you
                 }
-                // added in additional check
-                if (userAnswer != correctAnswer) {
-                    val mediaPlayer = MediaPlayer.create(context, R.raw.wrong_ans)
+                else{
+                    val resourceId = resources.getIdentifier("incorrect_ans","mp3","com.example.project3")
+                    val mediaPlayer = MediaPlayer.create(context, resourceId)
                     mediaPlayer.start()
                 }
                 userInput.setText("")
@@ -92,7 +100,6 @@ class Fragment2 : Fragment() {
                     val operView = view.findViewById<TextView>(R.id.operatorTextView)
                     val num2 = view.findViewById<TextView>(R.id.number2TextView)
                     val eqString = eqs!!.get(0)
-                    val oper = args.type
                     val operLoc = eqString.indexOf(oper)
                     num1.text = eqString.subSequence(0,operLoc).toString()
                     operView.text = eqString[operLoc].toString()
@@ -102,7 +109,7 @@ class Fragment2 : Fragment() {
                 }
                 // passes the score info from fragment 2 -> fragment 1
                 else{
-                    val action = Fragment2Directions.actionFragment2ToFragment1("You got $numCorrect out of $numOfQs")
+                    val action = Fragment2Directions.actionFragment2ToFragment1(result,"$numCorrect","$numOfQs", "$oper")
                     findNavController().navigate(action)
                 }
             }

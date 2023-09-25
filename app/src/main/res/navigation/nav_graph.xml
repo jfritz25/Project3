@@ -9,9 +9,21 @@
         <action
             android:id="@+id/action_fragment1_to_fragment2"
             app:destination="@id/fragment2" />
-
-
+        <argument android:name="result"
+            app:argType="boolean"
+            android:defaultValue="true"
+            />
+        <argument android:name="numCorrect"
+            app:argType="string"
+            android:defaultValue=""/>
+        <argument android:name="numOfQs"
+            app:argType="string"
+            android:defaultValue=""/>
+        <argument android:name="oper"
+            app:argType="string"
+            android:defaultValue=""/>
     </fragment>
+
     <fragment
         android:id="@+id/fragment2"
         android:name="com.example.project3.Fragment2">
@@ -19,10 +31,8 @@
             android:id="@+id/action_fragment2_to_fragment1"
             app:destination="@id/fragment1" />
 
-
         <argument android:name="eqs"
-            app:argType="string[]"
-            />
+            app:argType="string[]"/>
         <argument android:name="ans"
             app:argType="string[]" />
         <argument android:name="numofQs"
@@ -30,9 +40,8 @@
         <argument android:name="type"
             app:argType="string"
             />
-        <argument android:name="result"
-            app:argType="boolean"
-            />
+
     </fragment>
+
 
 </navigation>
