@@ -75,11 +75,13 @@ class Fragment2 : Fragment() {
                 val correctAnswer = round(ans!!.get(0).toDouble() * 100) / 100
                 if (userAnswer == correctAnswer) {
                     numCorrect++
-
-                    // added in to make button noise
-                    val resourceId = resources.getIdentifier("correct_ans","mp3","com.example.project3")
-                    val mediaPlayer = MediaPlayer.create(context, resourceId)
-                    mediaPlayer.start() // no need to call prepare(); create() does that for you
+                    val mediaPlayer = MediaPlayer.create(context, R.raw.correct_ans)
+                    mediaPlayer.start()
+                }
+                // added in additional check
+                if (userAnswer != correctAnswer) {
+                    val mediaPlayer = MediaPlayer.create(context, R.raw.wrong_ans)
+                    mediaPlayer.start()
                 }
                 userInput.setText("")
                 userInput.hint = "Your Answer..."
