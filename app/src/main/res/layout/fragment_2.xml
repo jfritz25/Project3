@@ -67,17 +67,6 @@
                 android:textColor="@color/black"
                 android:text="" />
         </RelativeLayout>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/Message"
-        android:textSize="20sp"
-        android:textColor="@color/black"
-        android:text=""
-        android:layout_gravity="center"
-        >
-
-    </TextView>
 
         <EditText
             android:id="@+id/userAnswer"
