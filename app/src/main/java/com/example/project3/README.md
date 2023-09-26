@@ -54,9 +54,11 @@ Safeargs was implemented to transfer data from fragment to fragment. That was we
 ---
 ## Video Walkthrough
 Watch a demonstration of each difficulty level and operation demonstrated in the gif available on Github
-Here's a walkthrough of a few cases:
+Here's a walkthrough of a few cases:<br>
+<span style="font-size: smaller;"><strong>Since this is a gif the audio is not available as referenced in th eInscribe post Ashley made on 9/25 and can be heard when personally tested</strong></span>
+<br>
 
-<img src='https://github.com/jfritz25/Project3/blob/master/app/src/main/java/com/example/project3/RecordingProject3.gif' title='Project3 Video Walkthrough' width='50%' height = '50%' alt='Video Walkthrough' />
+<img src='https://github.com/jfritz25/Project3/blob/project4_ashley/app/src/main/java/com/example/project3/Project4Recording.gif' title='Project4 Video Walkthrough' width='50%' height = '50%' alt='Video Walkthrough' />
 
 GIF created with [CloudConvert](https://cloudconvert.com/).
 
