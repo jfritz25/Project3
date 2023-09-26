@@ -1,4 +1,4 @@
-# Project_03 - Arithmetic App
+# Project_04 - Arithmetic App (w/ Sound and a Toast)
 <span style="font-size: smaller;"><strong>Ashley Steitz and Jacob Fritz worked on this as partners</strong></span>
 
 ---
@@ -19,14 +19,21 @@ And 4 Arithmetic Operators:
 
 As well as the user to select how many questions they will be asked using "+" and "-" to add or subtract the number of questions before pressing the "Start" Button to begin the game.
 
-To begin we have added 3 fragments that show the differing stages of the player's placement in the app. Fragment 1 is the selection screen that contains Radio Buttons that help makes the 
-selection easy and simple by the user. Then we have a '+' and '-' button to help them select how many questions they will be asked. Finally the large "Start" button is pressed to take them 
-to the next screen to begin the arithmetic game!
+To begin we took the previous 3 fragments and reduced it down to 2 fragments. 
 
-Fragment 2 handles the difficulty level as well as the operator selection to produce the right content for the user. Once they complete the total number of questions they press the "Done" button.
-This takes them to the final fragment page.
+Fragment 1 now starts as the original screen where the user is prompted to make a selection using the Radio Buttons for their arithmetic quiz.
+We kept the same functionalities as Project3 with the  '+' and '-' button to help them select how many questions they will be asked. As well as the 
+"Start" button that, when pressed, takes them to the next screen to begin the arithmetic game!
 
-Finally, Fragment 3 displays the score of the player and offers a "Retry" button to take them back to the start to play the game again!
+Fragment 2 handles the difficulty level as well as the operator selection to produce the right content for the user. The improvements made are including a sound that is made when the arithmetic
+performed by the user is correct they hear a higher pitched "ring" and when they get the question wrong they hear a harsher sounding "buzzer" noise. At the end of their session their performance
+is calculated and if they did better than 80% then they receive a congratulatory message. However if they score below 80% they are given an encouraging message to improve their abilities.
+
+Once they complete the total number of questions they are taken to the main screen where they are gretted by their performance message and a "Toast" with a similar corresponding popup message:
+- good work if they scored 80% or higher
+- bad, they need to continue working on their arithmetic
+
+Fragment 1 is back and the user has the opportunity to  play the game again!
 
 ## Functionality
 '*' indicates tested in GIF  
@@ -55,6 +62,9 @@ GIF created with [CloudConvert](https://cloudconvert.com/).
 
 ## Notes
 UI Challenges:
+- integrating the raw file instead of creating a directory called "raw" .. it impacts how the mp3 files are handeled
+- adding the new textView under the image and adjsuting the topMargin for all following values
+- placement of the messageId (needed to be in fragment 1 but was in fragment2 for far too long)
 - Obtaining the rounded edges using on the buttons
 - Connecting the fragments
 - Changing the version our gradle was using
@@ -63,7 +73,11 @@ UI Challenges:
   - specifically the radio buttons
 - Understanding the Nav graph component
 
+
 Backend Challenges:
+- Integrating the messageId to the fragment arguments to be passed
+- Integrating the 80% if statement to catch and display the according message
+- Overriding the text value on the fragment 1 page to accommodate the above feature
 - Implementing a way to pass items through safe args rather than bundles
 - Understanding the inflating of views
 - How to utilize onCreate() versus hard coding outside then calling it on inflate

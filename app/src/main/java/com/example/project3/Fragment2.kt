@@ -61,7 +61,13 @@ class Fragment2 : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        // instanciation of the lists used to build up the expected and user given outputs
+        /**
+         * A simple [view] subclass.
+         * Use the [onViewCreated] method to assign vlaues to buttons and determine the displayed
+         * message, symbols, and values
+         *
+         */
+        // instantiation of the lists used to build up the expected and user given outputs
         super.onViewCreated(view, savedInstanceState)
         var eqs = ArrayList(args.eqs.toList().subList(1, args.eqs.size))
         var ans = ArrayList(args.ans.toList())
@@ -121,6 +127,7 @@ class Fragment2 : Fragment() {
                             oper = "Division"
                         }
 
+                        // new ! passes the information from frag 1 -> frag 2 with the result of > or < 80% accuracy
                         val action = Fragment2Directions.actionFragment2ToFragment1(
                             result,
                             "$numCorrect",
