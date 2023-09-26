@@ -1,5 +1,5 @@
 # Project_04 - Arithmetic App 
-#### (w/ Sound, Changing messages, and a Toast)
+### (w/ Sound, Changing messages, and a Toast)
 <span style="font-size: smaller;"><strong>Ashley Steitz and Jacob Fritz worked on this as partners</strong></span>
 
 ---
