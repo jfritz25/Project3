@@ -68,7 +68,7 @@ class Fragment2 : Fragment() {
         val numOfQs = args.numofQs
         var numCorrect = 0
         val buttonDone = view.findViewById<Button>(R.id.buttonDone)
-        val oper = args.type
+        var oper = args.type
         var result = false
         buttonDone.setOnClickListener {
             // finds the answer and determines if it matches the expected response (rounding is used in division)
@@ -107,6 +107,20 @@ class Fragment2 : Fragment() {
                     }
                     // passes the score info from fragment 2 -> fragment 1
                     else {
+                        if(oper == "+"){
+                            oper = "Addition"
+                        }
+                        else if(oper == "-"){
+                            oper = "Subtraction"
+                        }
+                        else if(oper == "*"){
+                            oper = "Multiplication"
+                        }
+
+                        else{
+                            oper = "Division"
+                        }
+
                         val action = Fragment2Directions.actionFragment2ToFragment1(
                             result,
                             "$numCorrect",

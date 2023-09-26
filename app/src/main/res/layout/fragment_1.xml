@@ -40,18 +40,24 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-
-
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/Message"
+            android:textSize="30sp"
+            android:layout_marginTop="225dp"
+            android:textColor="@color/black"
+            android:text=""
+            />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-
             <TextView
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="225dp"
+                android:layout_marginTop="2dp"
                 android:layout_marginBottom="0dp"
                 android:text="@string/Select_Difficulty"
                 android:textStyle="bold"
@@ -62,7 +68,7 @@
             <TextView
                 android:layout_width="200dp"
                 android:layout_height="match_parent"
-                android:layout_marginTop="225dp"
+                android:layout_marginTop="2dp"
                 android:layout_marginBottom="0dp"
                 android:text="@string/Select_Operation"
                 android:textStyle="bold"
@@ -264,8 +270,8 @@
         <Button
             android:id="@+id/buttonStart"
             android:layout_width="match_parent"
-            android:layout_height="275dp"
-            android:layout_marginTop="10dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="5dp"
             android:layout_marginBottom="61dp"
 
 
